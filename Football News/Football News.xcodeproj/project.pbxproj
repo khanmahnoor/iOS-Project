@@ -3,25 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BF73043ED865B4C2DCE2902 /* Pods_Football_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263130C1DEBA6A07C9B7DF08 /* Pods_Football_News.framework */; };
+		4A4F267722DC890300AFCC93 /* NewsFeedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F267622DC890300AFCC93 /* NewsFeedObject.swift */; };
 		4ADA759622DC5BF2001E76AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA759522DC5BF2001E76AF /* AppDelegate.swift */; };
-		4ADA759822DC5BF2001E76AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA759722DC5BF2001E76AF /* ViewController.swift */; };
 		4ADA759B22DC5BF2001E76AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ADA759922DC5BF2001E76AF /* Main.storyboard */; };
 		4ADA759D22DC5BF3001E76AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ADA759C22DC5BF3001E76AF /* Assets.xcassets */; };
 		4ADA75A022DC5BF3001E76AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ADA759E22DC5BF3001E76AF /* LaunchScreen.storyboard */; };
+		4ADA75AC22DC835D001E76AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ADA75AB22DC835D001E76AF /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		263130C1DEBA6A07C9B7DF08 /* Pods_Football_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Football_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A4F267622DC890300AFCC93 /* NewsFeedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedObject.swift; sourceTree = "<group>"; };
 		4ADA759222DC5BF2001E76AF /* Football News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ADA759522DC5BF2001E76AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4ADA759722DC5BF2001E76AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4ADA759A22DC5BF2001E76AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4ADA759C22DC5BF3001E76AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ADA759F22DC5BF3001E76AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ADA75A122DC5BF3001E76AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4ADA75AB22DC835D001E76AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CFCF8400F0F2753BF63F6873 /* Pods-Football News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Football News.debug.xcconfig"; path = "Target Support Files/Pods-Football News/Pods-Football News.debug.xcconfig"; sourceTree = "<group>"; };
+		F5A13378FD0BD06A0CA14E23 /* Pods-Football News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Football News.release.xcconfig"; path = "Target Support Files/Pods-Football News/Pods-Football News.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF73043ED865B4C2DCE2902 /* Pods_Football_News.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				4ADA759422DC5BF2001E76AF /* Football News */,
 				4ADA759322DC5BF2001E76AF /* Products */,
+				E92A61ED0117070A33482CFF /* Pods */,
+				974F51A3C4EA9459DB2FB7BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +63,64 @@
 		4ADA759422DC5BF2001E76AF /* Football News */ = {
 			isa = PBXGroup;
 			children = (
+				4ADA75AA22DC803D001E76AF /* View Controller */,
+				4ADA75A922DC8032001E76AF /* View Model */,
+				4ADA75A822DC8026001E76AF /* View */,
+				4ADA75A722DC801B001E76AF /* Model */,
 				4ADA759522DC5BF2001E76AF /* AppDelegate.swift */,
-				4ADA759722DC5BF2001E76AF /* ViewController.swift */,
-				4ADA759922DC5BF2001E76AF /* Main.storyboard */,
+				4ADA75AB22DC835D001E76AF /* GoogleService-Info.plist */,
 				4ADA759C22DC5BF3001E76AF /* Assets.xcassets */,
 				4ADA759E22DC5BF3001E76AF /* LaunchScreen.storyboard */,
 				4ADA75A122DC5BF3001E76AF /* Info.plist */,
 			);
 			path = "Football News";
+			sourceTree = "<group>";
+		};
+		4ADA75A722DC801B001E76AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A4F267622DC890300AFCC93 /* NewsFeedObject.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4ADA75A822DC8026001E76AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4ADA759922DC5BF2001E76AF /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4ADA75A922DC8032001E76AF /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		4ADA75AA22DC803D001E76AF /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		974F51A3C4EA9459DB2FB7BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				263130C1DEBA6A07C9B7DF08 /* Pods_Football_News.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E92A61ED0117070A33482CFF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CFCF8400F0F2753BF63F6873 /* Pods-Football News.debug.xcconfig */,
+				F5A13378FD0BD06A0CA14E23 /* Pods-Football News.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +130,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4ADA75A422DC5BF3001E76AF /* Build configuration list for PBXNativeTarget "Football News" */;
 			buildPhases = (
+				F707AA49B2B0BAFBACEA6A86 /* [CP] Check Pods Manifest.lock */,
 				4ADA758E22DC5BF2001E76AF /* Sources */,
 				4ADA758F22DC5BF2001E76AF /* Frameworks */,
 				4ADA759022DC5BF2001E76AF /* Resources */,
+				38478BDC8E3E4911C0CB1D41 /* [CP] Embed Pods Frameworks */,
+				4A4F267822DC8E8A00AFCC93 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -123,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ADA75A022DC5BF3001E76AF /* LaunchScreen.storyboard in Resources */,
+				4ADA75AC22DC835D001E76AF /* GoogleService-Info.plist in Resources */,
 				4ADA759D22DC5BF3001E76AF /* Assets.xcassets in Resources */,
 				4ADA759B22DC5BF2001E76AF /* Main.storyboard in Resources */,
 			);
@@ -130,13 +193,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		38478BDC8E3E4911C0CB1D41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Football News/Pods-Football News-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Football News/Pods-Football News-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Football News/Pods-Football News-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A4F267822DC8E8A00AFCC93 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		F707AA49B2B0BAFBACEA6A86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Football News-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4ADA758E22DC5BF2001E76AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ADA759822DC5BF2001E76AF /* ViewController.swift in Sources */,
 				4ADA759622DC5BF2001E76AF /* AppDelegate.swift in Sources */,
+				4A4F267722DC890300AFCC93 /* NewsFeedObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +403,7 @@
 		};
 		4ADA75A522DC5BF3001E76AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFCF8400F0F2753BF63F6873 /* Pods-Football News.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +421,7 @@
 		};
 		4ADA75A622DC5BF3001E76AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5A13378FD0BD06A0CA14E23 /* Pods-Football News.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>601011734155-2jo5lleo169gvd5mo839fmp79258qp81.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.601011734155-2jo5lleo169gvd5mo839fmp79258qp81</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAQ-TTamxXq7nZyxyZKjbx83v2nBabYMeg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>601011734155</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.Football-News</string>
+	<key>PROJECT_ID</key>
+	<string>football-news-82d0b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>football-news-82d0b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:601011734155:ios:2c1da999a2ac6161</string>
+	<key>DATABASE_URL</key>
+	<string>https://football-news-82d0b.firebaseio.com</string>
+</dict>
+</plist>
