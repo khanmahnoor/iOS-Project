@@ -13,5 +13,4 @@ struct NewsFeedObject : Codable {
     var title : String
     var description : String
     var type : Int
-    var key : Int
 }

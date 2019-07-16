@@ -26,48 +26,82 @@
             </objects>
             <point key="canvasLocation" x="135" y="-1029"/>
         </scene>
-        <!--View Controller-->
+        <!--Newsfeed Tab-->
         <scene sceneID="n76-Gq-BAp">
             <objects>
-                <viewController id="pN1-Cn-CKm" sceneMemberID="viewController">
+                <viewController id="pN1-Cn-CKm" userLabel="Newsfeed Tab" customClass="FNNewsfeedVC" customModule="Football_News" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fFy-JX-JIj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OEm-3h-KWe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OEm-3h-KWe">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="210" id="JG2-vU-2wm">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="210"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoIdentifier" rowHeight="319" id="JG2-vU-2wm" customClass="FNVideoCell" customModule="Football_News" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="319"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JG2-vU-2wm" id="4eO-6y-xnL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="209.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="318.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nck-pa-FpP" customClass="YTPlayerView">
-                                                    <rect key="frame" x="8" y="8" width="398" height="193.5"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tH0-x9-puH" customClass="YTPlayerView">
+                                                    <rect key="frame" x="8" y="8" width="398" height="250"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="250" id="6FV-Rk-6r1"/>
+                                                    </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HD-vw-39e">
+                                                    <rect key="frame" x="8" y="266" width="195" height="44.5"/>
+                                                    <state key="normal" title="Watch"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLJ-ve-MTx">
+                                                    <rect key="frame" x="211" y="266" width="195" height="44.5"/>
+                                                    <state key="normal" title="Share"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Nck-pa-FpP" firstAttribute="leading" secondItem="4eO-6y-xnL" secondAttribute="leading" constant="8" id="MRc-Pm-u3D"/>
-                                                <constraint firstAttribute="bottom" secondItem="Nck-pa-FpP" secondAttribute="bottom" constant="8" id="Ort-Xt-jZF"/>
-                                                <constraint firstAttribute="trailing" secondItem="Nck-pa-FpP" secondAttribute="trailing" constant="8" id="ZQb-mT-Qk8"/>
-                                                <constraint firstItem="Nck-pa-FpP" firstAttribute="top" secondItem="4eO-6y-xnL" secondAttribute="top" constant="8" id="hQr-nW-MNj"/>
+                                                <constraint firstItem="HLJ-ve-MTx" firstAttribute="leading" secondItem="5HD-vw-39e" secondAttribute="trailing" constant="8" id="F4F-1o-r5H"/>
+                                                <constraint firstItem="HLJ-ve-MTx" firstAttribute="top" secondItem="tH0-x9-puH" secondAttribute="bottom" constant="8" id="FcZ-Lc-azt"/>
+                                                <constraint firstAttribute="trailing" secondItem="HLJ-ve-MTx" secondAttribute="trailing" constant="8" id="H9Z-LJ-ZkL"/>
+                                                <constraint firstAttribute="bottom" secondItem="5HD-vw-39e" secondAttribute="bottom" constant="8" id="Jnz-wV-UDi"/>
+                                                <constraint firstItem="HLJ-ve-MTx" firstAttribute="leading" secondItem="5HD-vw-39e" secondAttribute="trailing" constant="8" id="K28-Br-Fhp"/>
+                                                <constraint firstAttribute="trailing" secondItem="tH0-x9-puH" secondAttribute="trailing" constant="8" id="KKp-Zg-QAd"/>
+                                                <constraint firstItem="5HD-vw-39e" firstAttribute="leading" secondItem="4eO-6y-xnL" secondAttribute="leading" constant="8" id="QAp-V4-3w7"/>
+                                                <constraint firstItem="tH0-x9-puH" firstAttribute="top" secondItem="4eO-6y-xnL" secondAttribute="top" constant="8" id="U5J-t1-alm"/>
+                                                <constraint firstAttribute="bottom" secondItem="HLJ-ve-MTx" secondAttribute="bottom" constant="8" id="a44-Jq-qAR"/>
+                                                <constraint firstItem="HLJ-ve-MTx" firstAttribute="width" secondItem="5HD-vw-39e" secondAttribute="width" id="bc2-du-XTF"/>
+                                                <constraint firstItem="5HD-vw-39e" firstAttribute="top" secondItem="tH0-x9-puH" secondAttribute="bottom" constant="8" id="jOk-1a-UwB"/>
+                                                <constraint firstItem="tH0-x9-puH" firstAttribute="leading" secondItem="4eO-6y-xnL" secondAttribute="leading" constant="8" id="vIV-x8-MqH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="videoPlayer" destination="tH0-x9-puH" id="wVZ-9A-Co9"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ceX-ji-dxD">
-                                        <rect key="frame" x="0.0" y="238" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FactIdentifier" id="ceX-ji-dxD" customClass="FNFactCell" customModule="Football_News" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="347" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ceX-ji-dxD" id="QNl-V7-bVz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMm-nF-QOw">
+                                                    <rect key="frame" x="153" y="11" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="factLabel" destination="fMm-nF-QOw" id="Wy8-yx-Kcb"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yVA-C9-zTc">
-                                        <rect key="frame" x="0.0" y="282" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsIdentifier" id="yVA-C9-zTc" customClass="FNNewsCell" customModule="Football_News" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="391" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yVA-C9-zTc" id="q4o-DN-M34">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -87,6 +121,9 @@
                         <viewLayoutGuide key="safeArea" id="Tk0-hc-sJz"/>
                     </view>
                     <navigationItem key="navigationItem" id="u70-JS-U9a"/>
+                    <connections>
+                        <outlet property="tableView" destination="OEm-3h-KWe" id="gj7-7n-oyG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0a-Yf-Wc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,11 +259,11 @@
             </objects>
             <point key="canvasLocation" x="-779" y="-18"/>
         </scene>
-        <!--Item 1-->
+        <!--Newsfeed-->
         <scene sceneID="HoM-sR-sDh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xRU-yr-vgO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="37D-Zl-DF6"/>
+                    <tabBarItem key="tabBarItem" title="Newsfeed" id="37D-Zl-DF6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JEy-It-mM1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
