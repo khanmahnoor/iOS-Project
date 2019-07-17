@@ -19,9 +19,9 @@ class FNVideoCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func loadVideo(_ u : String) {
+    func loadVideo(videoID : String) {
         video.delegate = self
-        video.load(withVideoId: u)
+        video.load(withVideoId: videoID)
         //videoPlayer.loadVideo(byURL: u, startSeconds: 0.0, suggestedQuality: .auto)
     }
 }

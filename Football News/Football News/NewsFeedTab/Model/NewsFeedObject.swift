@@ -13,4 +13,13 @@ struct NewsFeedObject : Codable {
     var title : String
     var description : String
     var type : Int
+    
+    static func getVideoID (url : String) -> String {
+        if let index = url.lastIndex(of: "/") {
+            let range = url.index(after: index)
+            let ID = String(url[range...])
+            return ID
+        }
+        return "rdjnkb4ONWk"
+    }
 }

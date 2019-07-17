@@ -2,7 +2,7 @@
 //  FNNewsCell.swift
 //  Football News
 //
-//  Created by Mahnoor Khan on 16/07/2019.
+//  Created by Mahnoor Khan on 17/07/2019.
 //  Copyright © 2019 Mahnoor Khan. All rights reserved.
 //
 
@@ -20,5 +20,5 @@ class FNNewsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

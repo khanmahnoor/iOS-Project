@@ -2,7 +2,7 @@
 //  FNFactCell.swift
 //  Football News
 //
-//  Created by Mahnoor Khan on 16/07/2019.
+//  Created by Mahnoor Khan on 17/07/2019.
 //  Copyright © 2019 Mahnoor Khan. All rights reserved.
 //
 
@@ -10,7 +10,6 @@ import UIKit
 
 class FNFactCell: UITableViewCell {
 
-    @IBOutlet weak var factLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +20,5 @@ class FNFactCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
