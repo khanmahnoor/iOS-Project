@@ -32,7 +32,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foQ-ac-f60">
                         <rect key="frame" x="8" y="266" width="194.5" height="33.5"/>
-                        <state key="normal" title="Watchhhh"/>
+                        <state key="normal" title="Watch"/>
                     </button>
                 </subviews>
                 <constraints>

@@ -17,7 +17,7 @@ class FNNewsfeedVM {
     }
     
     init() {
-        fetchFeed()
+        self.model = FNDataManager.shared.model
     }
 }
 
@@ -28,12 +28,12 @@ extension FNNewsfeedVM {
     }
 }
 
-extension FNNewsfeedVM : NewsfeedService {
-    func fetchFeed() {
-        fetchNewsfeed { (objects) in
-            if let fetchedObjects : [NewsFeedObject] = objects {
-                self.model = fetchedObjects
-            }
-        }
-    }
-}
+//extension FNNewsfeedVM : NewsfeedService {
+//    func fetchFeed() {
+//        fetchNewsfeed { (objects) in
+//            if let fetchedObjects : [NewsFeedObject] = objects {
+//                self.model = fetchedObjects
+//            }
+//        }
+//    }
+//}

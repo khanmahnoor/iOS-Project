@@ -12,4 +12,7 @@ enum FNConstants : String {
     case VIDEO_IDENTIFIER = "VideoCellIdentifier"
     case FACT_IDENTIFIER = "FactCellIdentifier"
     case NEWS_IDENTIFIER = "NewsCellIdentifier"
+    case VIDEO_NIB = "FNVideoCell"
+    case FACT_NIB = "FNFactCell"
+    case NEWS_NIB = "FNNewsCell"
 }

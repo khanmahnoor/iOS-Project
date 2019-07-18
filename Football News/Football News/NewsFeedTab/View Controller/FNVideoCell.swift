@@ -28,6 +28,6 @@ class FNVideoCell: UITableViewCell {
 
 extension FNVideoCell : YTPlayerViewDelegate {
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        //videoPlayer.playVideo()
+        video.playVideo()
     }
 }

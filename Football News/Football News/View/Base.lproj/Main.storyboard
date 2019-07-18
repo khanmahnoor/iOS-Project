@@ -10,21 +10,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Gallery-->
         <scene sceneID="OYR-9d-mKP">
             <objects>
-                <viewController id="Jd0-FJ-SLf" sceneMemberID="viewController">
+                <viewController id="Jd0-FJ-SLf" customClass="FNGalleryVC" customModule="Football_News" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Wx-I2-7NG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WlS-UD-EoI">
+                                <rect key="frame" x="60" y="215" width="244" height="340"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="XuR-Bu-DCR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="WjV-Af-Zjg"/>
+                    <tabBarItem key="tabBarItem" title="Gallery" id="WjV-Af-Zjg"/>
+                    <connections>
+                        <outlet property="imagee" destination="WlS-UD-EoI" id="IaX-I5-uJN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZp-WG-M4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="-1029"/>
+            <point key="canvasLocation" x="134.78260869565219" y="-1029.2410714285713"/>
         </scene>
         <!--Newsfeed Tab-->
         <scene sceneID="n76-Gq-BAp">
@@ -48,7 +57,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tk0-hc-sJz"/>
                     </view>
-                    <navigationItem key="navigationItem" id="u70-JS-U9a"/>
+                    <navigationItem key="navigationItem" title="Newsfeed" id="u70-JS-U9a"/>
                     <connections>
                         <outlet property="tableView" destination="OEm-3h-KWe" id="gj7-7n-oyG"/>
                     </connections>
@@ -57,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="1044.9275362318842" y="-1790.625"/>
         </scene>
-        <!--Item 3-->
+        <!--Teams Tab-->
         <scene sceneID="CJB-DO-fS5">
             <objects>
-                <viewController id="lxJ-q9-A6c" userLabel="Item 3" sceneMemberID="viewController">
+                <viewController id="lxJ-q9-A6c" userLabel="Teams Tab" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B4c-7H-jBX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,16 +77,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fc4-of-Cpn">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ktH-Oq-e6l">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ktH-Oq-e6l" id="C2k-EM-AEB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,13 +88,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iFK-BW-CiJ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="17t-dX-uXc"/>
+                    <navigationItem key="navigationItem" title="Teams" id="17t-dX-uXc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRJ-Ua-7kc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1044.9275362318842" y="-247.09821428571428"/>
         </scene>
-        <!--Item 5-->
+        <!--About-->
         <scene sceneID="EpK-IY-fvR">
             <objects>
                 <viewController id="Rom-RH-Ppt" sceneMemberID="viewController">
@@ -105,32 +104,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lZ0-mZ-GMI"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 5" id="IWd-9P-wGr"/>
+                    <tabBarItem key="tabBarItem" title="About" id="IWd-9P-wGr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4k3-1S-ega" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135" y="1381"/>
         </scene>
-        <!--Item 6-->
+        <!--Cities-->
         <scene sceneID="wnp-hL-CUr">
             <objects>
-                <viewController id="OyG-0W-JfO" userLabel="Item 6" sceneMemberID="viewController">
+                <viewController id="OyG-0W-JfO" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jCt-ay-xjq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ByF-2M-NM0"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 6" id="iTG-bB-g67" userLabel="Item 6"/>
+                    <tabBarItem key="tabBarItem" title="Cities" id="iTG-bB-g67"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKt-EI-BHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135" y="2132"/>
         </scene>
-        <!--View Controller-->
+        <!--Players Tab-->
         <scene sceneID="Aga-X9-XGt">
             <objects>
-                <viewController id="jGo-wg-rD0" sceneMemberID="viewController">
+                <viewController id="jGo-wg-rD0" userLabel="Players Tab" customClass="FNPlayersVC" customModule="Football_News" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nEJ-EB-QVR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,16 +137,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gZB-Ny-xdK">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="K1R-5J-yaW">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K1R-5J-yaW" id="e0a-bi-uMs">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,7 +148,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cwq-OW-Nfo"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pHC-pO-LYS"/>
+                    <navigationItem key="navigationItem" title="Players" id="pHC-pO-LYS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDS-ig-Jaz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,7 +157,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="0F4-iw-EnQ">
             <objects>
-                <tabBarController id="XlV-LT-5vm" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="XlV-LT-5vm" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NSA-ie-Ldv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -190,7 +179,7 @@
         <!--Newsfeed-->
         <scene sceneID="HoM-sR-sDh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xRU-yr-vgO" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="newsfeedStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="xRU-yr-vgO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Newsfeed" id="37D-Zl-DF6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JEy-It-mM1">
@@ -206,11 +195,11 @@
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="-1790.625"/>
         </scene>
-        <!--Item 3-->
+        <!--Teams-->
         <scene sceneID="LHV-F0-XC3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Mx-7Q-h5u" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 3" id="GmI-xW-TEU" userLabel="Item 3"/>
+                    <tabBarItem key="tabBarItem" title="Teams" id="GmI-xW-TEU" userLabel="Item 3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QFR-1y-FIS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -225,11 +214,11 @@
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="-247.09821428571428"/>
         </scene>
-        <!--Item 4-->
+        <!--Players-->
         <scene sceneID="kUb-uq-6ml">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aoP-Zc-WT8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 4" id="oBV-jN-VCJ"/>
+                    <tabBarItem key="tabBarItem" title="Players" id="oBV-jN-VCJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pnF-sN-Pb2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

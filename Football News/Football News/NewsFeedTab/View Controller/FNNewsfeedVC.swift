@@ -11,13 +11,13 @@ class FNNewsfeedVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var vm : FNNewsfeedVM?
+    var newsfeedVM : FNNewsfeedVM?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerProtocols()
         registerNibs()
-        vm = FNNewsfeedVM()
+        newsfeedVM = FNNewsfeedVM()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.tableView.reloadData()
         }
@@ -29,18 +29,18 @@ class FNNewsfeedVC: UIViewController {
     }
     
     func registerNibs() {
-        let videoCellNib = UINib(nibName: "FNVideoCell", bundle: nil)
+        let videoCellNib = UINib(nibName: FNConstants.VIDEO_NIB.rawValue , bundle: nil)
         tableView.register(videoCellNib, forCellReuseIdentifier: FNConstants.VIDEO_IDENTIFIER.rawValue)
     }
 }
 
 extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vm?.itemCount ?? 0
+        return newsfeedVM?.itemCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let feedObject = vm?.itemAt(indexPath)
+        let feedObject = newsfeedVM?.itemAt(indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.VIDEO_IDENTIFIER.rawValue) as! FNVideoCell
         if let urlString = feedObject?.url {
             let videoID = NewsFeedObject.getVideoID(url: urlString)
