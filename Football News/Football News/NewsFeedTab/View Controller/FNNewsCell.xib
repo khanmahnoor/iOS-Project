@@ -12,14 +12,56 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellIdentifier" id="KGk-i7-Jjw" customClass="FNNewsCell" customModule="Football_News" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellIdentifier" rowHeight="208" id="KGk-i7-Jjw" customClass="FNNewsCell" customModule="Football_News" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="208"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="413" height="207.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xT-IZ-Nxw">
+                        <rect key="frame" x="8" y="177" width="194.5" height="22.5"/>
+                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <state key="normal" title="Read More">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alw-Cs-MXi">
+                        <rect key="frame" x="210.5" y="177" width="194.5" height="22.5"/>
+                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <state key="normal" title="Share">
+                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="vba-bG-kcP" customClass="URLEmbeddedView" customModule="URLEmbeddedView">
+                        <rect key="frame" x="8" y="8" width="397" height="161"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="161" id="Rng-Dc-tfD"/>
+                            <constraint firstAttribute="width" constant="397" id="she-sp-831"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="8xT-IZ-Nxw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="09g-Lf-EM9"/>
+                    <constraint firstAttribute="bottom" secondItem="Alw-Cs-MXi" secondAttribute="bottom" constant="8" id="AS1-vU-yoG"/>
+                    <constraint firstItem="8xT-IZ-Nxw" firstAttribute="top" secondItem="vba-bG-kcP" secondAttribute="bottom" constant="8" id="BXp-Un-8EF"/>
+                    <constraint firstAttribute="bottom" secondItem="8xT-IZ-Nxw" secondAttribute="bottom" constant="8" id="H6z-Ms-pT4"/>
+                    <constraint firstAttribute="trailing" secondItem="Alw-Cs-MXi" secondAttribute="trailing" constant="8" id="HpK-Gy-TCe"/>
+                    <constraint firstItem="vba-bG-kcP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="QL3-Pc-6Nj"/>
+                    <constraint firstItem="Alw-Cs-MXi" firstAttribute="width" secondItem="8xT-IZ-Nxw" secondAttribute="width" id="Rvi-63-hUm"/>
+                    <constraint firstItem="Alw-Cs-MXi" firstAttribute="leading" secondItem="8xT-IZ-Nxw" secondAttribute="trailing" constant="8" id="lRC-oG-KrZ"/>
+                    <constraint firstAttribute="trailing" secondItem="vba-bG-kcP" secondAttribute="trailing" constant="8" id="tMK-MB-i37"/>
+                    <constraint firstItem="Alw-Cs-MXi" firstAttribute="top" secondItem="vba-bG-kcP" secondAttribute="bottom" constant="8" id="uJ8-Sj-tiu"/>
+                    <constraint firstItem="vba-bG-kcP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="xud-1e-p2a"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="urlView" destination="vba-bG-kcP" id="BCy-tI-cwU"/>
+            </connections>
+            <point key="canvasLocation" x="48.550724637681164" y="12.053571428571429"/>
         </tableViewCell>
     </objects>
 </document>

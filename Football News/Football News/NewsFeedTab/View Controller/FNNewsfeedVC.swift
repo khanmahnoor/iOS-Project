@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class FNNewsfeedVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -17,20 +18,28 @@ class FNNewsfeedVC: UIViewController {
         super.viewDidLoad()
         registerProtocols()
         registerNibs()
-        newsfeedVM = FNNewsfeedVM()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.tableView.reloadData()
-        }
+        initViewModel()
     }
-    
+}
+
+extension FNNewsfeedVC {
     func registerProtocols () {
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     func registerNibs() {
-        let videoCellNib = UINib(nibName: FNConstants.VIDEO_NIB.rawValue , bundle: nil)
+        let videoCellNib    =   UINib(nibName: FNConstants.VIDEO_NIB.rawValue , bundle: nil)
+        let factCellNib     =   UINib(nibName: FNConstants.FACT_NIB.rawValue, bundle: nil)
+        let newsCellNib     =   UINib(nibName: FNConstants.NEWS_NIB.rawValue, bundle: nil)
+        
         tableView.register(videoCellNib, forCellReuseIdentifier: FNConstants.VIDEO_IDENTIFIER.rawValue)
+        tableView.register(factCellNib, forCellReuseIdentifier: FNConstants.FACT_IDENTIFIER.rawValue)
+        tableView.register(newsCellNib, forCellReuseIdentifier: FNConstants.NEWS_IDENTIFIER.rawValue)
+    }
+    
+    func initViewModel() {
+        newsfeedVM = FNNewsfeedVM()
     }
 }
 
@@ -41,12 +50,34 @@ extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let feedObject = newsfeedVM?.itemAt(indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.VIDEO_IDENTIFIER.rawValue) as! FNVideoCell
-        if let urlString = feedObject?.url {
-            let videoID = NewsFeedObject.getVideoID(url: urlString)
-            cell.loadVideo(videoID: videoID)
+        switch feedObject?.type {
+        case 0:
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.VIDEO_IDENTIFIER.rawValue) as? FNVideoCell else { return UITableViewCell() }
+            let videoID = feedObject?.getVideoID()
+            if let vID = videoID {
+                cell.loadVideo(videoID: vID)
+            }
+            return (cell)
+            
+        case 1:
+            
+            //return fact cell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.FACT_IDENTIFIER.rawValue) as? FNFactCell else { return UITableViewCell() }
+            return cell
+            
+        case 2:
+            
+            //return news cell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.NEWS_IDENTIFIER.rawValue) as? FNNewsCell else { return UITableViewCell() }
+            if let feedObject = feedObject {
+                cell.loadNews(news: feedObject)
+            }
+            return cell
+            
+        default:
+            return UITableViewCell()
         }
-        return (cell)
-    } 
+    }
 }
 

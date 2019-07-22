@@ -7,18 +7,14 @@
 //
 
 import UIKit
+import URLEmbeddedView
 
 class FNNewsCell: UITableViewCell {
+    @IBOutlet weak var urlView: URLEmbeddedView!
+}
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+extension FNNewsCell {
+    func loadNews (news : NewsFeedObject) {
+        urlView.load(withURLString: news.url)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

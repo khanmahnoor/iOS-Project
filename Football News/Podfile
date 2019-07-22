@@ -10,6 +10,5 @@ target 'Football News' do
   pod 'Firebase/Database' 
   pod 'Firebase/Core'
   pod 'youtube-ios-player-helper'
-  pod 'Alamofire'
-  pod 'AlamofireImage'
+  pod 'URLEmbeddedView'
 end

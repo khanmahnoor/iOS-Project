@@ -27,8 +27,6 @@ extension FNSplash {
     func proceedToHomeScreen() {        
         let targetStoryboard = UIStoryboard(name: "Main", bundle: nil)
         if let targetViewController = targetStoryboard.instantiateInitialViewController() {
-//            self.navigationController?.pushViewController(targetViewController, animated: true)
-//            present(targetViewController, animated: false, completion: nil)
             (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = targetViewController
         }
     }

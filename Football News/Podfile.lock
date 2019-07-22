@@ -1,7 +1,4 @@
 PODS:
-  - Alamofire (4.8.2)
-  - AlamofireImage (3.5.2):
-    - Alamofire (~> 4.8)
   - Crashlytics (3.13.3):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
@@ -64,20 +61,18 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - URLEmbeddedView (0.17.1)
   - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
-  - Alamofire
-  - AlamofireImage
   - Crashlytics
   - Firebase/Core
   - Firebase/Database
+  - URLEmbeddedView
   - youtube-ios-player-helper
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Alamofire
-    - AlamofireImage
     - Crashlytics
     - Fabric
     - Firebase
@@ -90,11 +85,10 @@ SPEC REPOS:
     - GoogleUtilities
     - leveldb-library
     - nanopb
+    - URLEmbeddedView
     - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   Crashlytics: 2aa08cd61fb1d62718c4e653169461d1d7377de2
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 9445469655a98e9010737f4bc4720e5bda465873
@@ -107,8 +101,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: c7a0b08bda3bf808be823ed151f0e28ac6866e71
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  URLEmbeddedView: 08237f670e68c9ba7ae98f7de9e3e48ae2492126
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 078fe928577eba938eea8f80b5dcf6621ce13fe2
+PODFILE CHECKSUM: c4a2d33a9e58ba7d07580e98118f9fbde3b36641
 
 COCOAPODS: 1.7.4

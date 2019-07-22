@@ -10,20 +10,22 @@ import Foundation
 
 class FNPlayersVM {
     var model : [PlayerObject]?
+    
     var itemCount : Int {
         get {
             return model?.count ?? 0
         }
     }
+    
     init() {
-        
+        getPlayers()
     }
 }
 
 extension FNPlayersVM {
-    func itemAt(_ indexpath: IndexPath) -> PlayerObject? {
+    func itemAt(_ indexPath: IndexPath) -> PlayerObject? {
         guard let _model = model, itemCount > 0 else { return nil }
-        return _model[indexpath.row]
+        return _model[indexPath.row]
     }
 }
 
@@ -32,6 +34,9 @@ extension FNPlayersVM : PlayerService {
         fetchPlayers { (objects) in
             if let fetchedObjects : [PlayerObject] = objects {
                 self.model = fetchedObjects
+            }
+            else {
+                
             }
         }
     }

@@ -27,8 +27,6 @@ extension FNDataManager : NewsfeedService {
             if let fetchedObjects : [NewsFeedObject] = objects {
                 self.model = fetchedObjects
                 self.feedDataFetched?()
-                print(fetchedObjects)
-                print("IN COUNT" , fetchedObjects.count)
             } else {
                 
             }

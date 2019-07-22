@@ -11,18 +11,26 @@ import youtube_ios_player_helper
 class FNVideoCell: UITableViewCell {
 
     @IBOutlet weak var video: YTPlayerView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        registerProtocol()
     }
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+extension FNVideoCell {
+    
+    func registerProtocol() {
+        video.delegate = self
     }
     
     func loadVideo(videoID : String) {
-        video.delegate = self
-        video.load(withVideoId: videoID)
-        //videoPlayer.loadVideo(byURL: u, startSeconds: 0.0, suggestedQuality: .auto)
+        video.load(withVideoId: videoID, playerVars: ["playsinline" : 1,
+                                                      "showinfo" : 0,
+                                                      "rel" : 0,
+                                                      "modestbranding" : 1,
+                                                      "controls" : 1,
+                                                      "origin" : "https://www.example.com"])
     }
 }
 
