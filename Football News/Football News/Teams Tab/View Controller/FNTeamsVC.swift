@@ -10,31 +10,33 @@ import UIKit
 import URLEmbeddedView
 
 class FNTeamsVC: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
-     var teamsVM : FNTeamsVM?
+    // MARK: Properties and Outlets
+    var teamsVM                     :   FNTeamsVM?
+    @IBOutlet weak var tableView    :   UITableView!
     
+    // MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerProtocols()
         registerNibs()
         initViewModel()
         reloadTableView()
+        registerProtocols()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let item = sender as? TeamObject else { return }
-        if segue.identifier == FNConstants.TEAMS_SEGUE.rawValue {
-            let destination = segue.destination as? FNTeamDetailsVC
-            destination?.getTeamDetails(team: item)
+        guard let item      =   sender as? TeamObject else { return }
+        if segue.identifier ==  FNConstants.TEAMS_SEGUE.rawValue {
+            let destination =   segue.destination as? FNTeamDetailsVC
+            destination?.initViewModel(team: item)
         }
     }
 }
 
+// MARK: Registration Functions Extension
 extension FNTeamsVC {
     func registerProtocols() {
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.delegate      =   self
+        tableView.dataSource    =   self
     }
     
     func registerNibs() {
@@ -53,6 +55,7 @@ extension FNTeamsVC {
     }
 }
 
+// MARK: Table View functions
 extension FNTeamsVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teamsVM?.itemCount ?? 0
@@ -60,16 +63,12 @@ extension FNTeamsVC : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let team = teamsVM?.itemAt(indexPath) else { return UITableViewCell() }
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.TEAM_IDENTIFIER.rawValue) as? FNTeamCell else { return UITableViewCell() }
         cell.setTeam(team: team)
         return cell
     }
-}
-
-extension FNTeamsVC {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let team = teamsVM?.itemAt(indexPath)
         performSegue(withIdentifier: FNConstants.TEAMS_SEGUE.rawValue, sender: team)
     }

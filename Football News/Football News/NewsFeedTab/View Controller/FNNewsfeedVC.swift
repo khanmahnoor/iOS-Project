@@ -10,10 +10,11 @@ import UIKit
 
 class FNNewsfeedVC: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    // MARK: Properties and Outlets
+    var newsfeedVM                  :   FNNewsfeedVM?
+    @IBOutlet weak var tableView    :   UITableView!
     
-    var newsfeedVM : FNNewsfeedVM?
-    
+    // MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         registerProtocols()
@@ -22,10 +23,11 @@ class FNNewsfeedVC: UIViewController {
     }
 }
 
+// MARK: Registration Functions Extension
 extension FNNewsfeedVC {
     func registerProtocols () {
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.delegate      =   self
+        tableView.dataSource    =   self
     }
     
     func registerNibs() {
@@ -43,6 +45,7 @@ extension FNNewsfeedVC {
     }
 }
 
+// MARK: Table View Functions Extension
 extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsfeedVM?.itemCount ?? 0
@@ -52,32 +55,42 @@ extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
         let feedObject = newsfeedVM?.itemAt(indexPath)
         switch feedObject?.type {
         case 0:
-            
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.VIDEO_IDENTIFIER.rawValue) as? FNVideoCell else { return UITableViewCell() }
-            let videoID = feedObject?.getVideoID()
-            if let vID = videoID {
+            guard let cell  =   tableView.dequeueReusableCell(withIdentifier: FNConstants.VIDEO_IDENTIFIER.rawValue) as? FNVideoCell else { return UITableViewCell() }
+            cell.delegate   =   self
+            cell.setTag(buttonTag :  indexPath.row)
+            if let vID = feedObject?.getVideoID() {
                 cell.loadVideo(videoID: vID)
             }
-            return (cell)
-            
-        case 1:
-            
-            //return fact cell
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.FACT_IDENTIFIER.rawValue) as? FNFactCell else { return UITableViewCell() }
             return cell
-            
+        case 1:
+            guard let cell  =   tableView.dequeueReusableCell(withIdentifier: FNConstants.FACT_IDENTIFIER.rawValue) as? FNFactCell else { return UITableViewCell() }
+            cell.delegate   =   self
+            cell.setTag(buttonTag :  indexPath.row)
+            if let feedObject = feedObject {
+                cell.loadFact(fact: feedObject)
+            }
+            return cell
         case 2:
-            
-            //return news cell
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.NEWS_IDENTIFIER.rawValue) as? FNNewsCell else { return UITableViewCell() }
+            guard let cell  =   tableView.dequeueReusableCell(withIdentifier: FNConstants.NEWS_IDENTIFIER.rawValue) as? FNNewsCell else { return UITableViewCell() }
+            cell.delegate   =    self
+            cell.setTag(buttonTag :  indexPath.row)
             if let feedObject = feedObject {
                 cell.loadNews(news: feedObject)
             }
             return cell
-            
         default:
             return UITableViewCell()
         }
     }
 }
 
+// MARK: Share button Function
+extension FNNewsfeedVC : FNButtonAction {
+    func onClick(_ tag: Int) {
+        let item = newsfeedVM?.itemThroughIndex(tag)
+        let itemToShare = [item?.url]
+        let activityViewController = UIActivityViewController(activityItems: itemToShare as [Any], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+}

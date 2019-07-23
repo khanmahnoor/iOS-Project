@@ -30,6 +30,17 @@
 		4A4F267722DC890300AFCC93 /* NewsFeedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F267622DC890300AFCC93 /* NewsFeedObject.swift */; };
 		4A4F267E22DDAA2400AFCC93 /* FNNewsfeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F267D22DDAA2400AFCC93 /* FNNewsfeedVC.swift */; };
 		4A4F268622DDE3A500AFCC93 /* FNNewsfeedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F268522DDE3A500AFCC93 /* FNNewsfeedVM.swift */; };
+		4AA753E722E6D0CF00A696A6 /* FNCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA753E622E6D0CF00A696A6 /* FNCacheManager.swift */; };
+		4AA753EB22E6D5F500A696A6 /* FNTeamDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA753EA22E6D5F500A696A6 /* FNTeamDetailsVM.swift */; };
+		4AA753ED22E6DDE600A696A6 /* FNPlayerDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA753EC22E6DDE600A696A6 /* FNPlayerDetailsVM.swift */; };
+		4AA753EF22E6E44300A696A6 /* GalleryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA753EE22E6E44300A696A6 /* GalleryObject.swift */; };
+		4AA753F122E6E4A700A696A6 /* FNGalleryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA753F022E6E4A700A696A6 /* FNGalleryVM.swift */; };
+		4AA753F422E6E8FE00A696A6 /* FNGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA753F222E6E8FE00A696A6 /* FNGalleryCell.swift */; };
+		4AA753F522E6E8FE00A696A6 /* FNGalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA753F322E6E8FE00A696A6 /* FNGalleryCell.xib */; };
+		4AA753F822E6EE7A00A696A6 /* GalleryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA753F722E6EE7A00A696A6 /* GalleryService.swift */; };
+		4AA753FA22E7044400A696A6 /* FNImageDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA753F922E7044400A696A6 /* FNImageDetailsVC.swift */; };
+		4AA753FC22E7046600A696A6 /* FNImageDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA753FB22E7046600A696A6 /* FNImageDetailsVM.swift */; };
+		4AA753FF22E733A300A696A6 /* FNButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA753FE22E733A200A696A6 /* FNButtonAction.swift */; };
 		4AD22D5B22E196A3009299C0 /* FNPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD22D5922E196A3009299C0 /* FNPlayerCell.swift */; };
 		4AD22D5C22E196A3009299C0 /* FNPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD22D5A22E196A3009299C0 /* FNPlayerCell.xib */; };
 		4AD22D6322E1A82E009299C0 /* TeamObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD22D6222E1A82E009299C0 /* TeamObject.swift */; };
@@ -69,6 +80,17 @@
 		4A4F267622DC890300AFCC93 /* NewsFeedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedObject.swift; sourceTree = "<group>"; };
 		4A4F267D22DDAA2400AFCC93 /* FNNewsfeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNNewsfeedVC.swift; sourceTree = "<group>"; };
 		4A4F268522DDE3A500AFCC93 /* FNNewsfeedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNNewsfeedVM.swift; sourceTree = "<group>"; };
+		4AA753E622E6D0CF00A696A6 /* FNCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNCacheManager.swift; sourceTree = "<group>"; };
+		4AA753EA22E6D5F500A696A6 /* FNTeamDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNTeamDetailsVM.swift; sourceTree = "<group>"; };
+		4AA753EC22E6DDE600A696A6 /* FNPlayerDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNPlayerDetailsVM.swift; sourceTree = "<group>"; };
+		4AA753EE22E6E44300A696A6 /* GalleryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryObject.swift; sourceTree = "<group>"; };
+		4AA753F022E6E4A700A696A6 /* FNGalleryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNGalleryVM.swift; sourceTree = "<group>"; };
+		4AA753F222E6E8FE00A696A6 /* FNGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNGalleryCell.swift; sourceTree = "<group>"; };
+		4AA753F322E6E8FE00A696A6 /* FNGalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FNGalleryCell.xib; sourceTree = "<group>"; };
+		4AA753F722E6EE7A00A696A6 /* GalleryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryService.swift; sourceTree = "<group>"; };
+		4AA753F922E7044400A696A6 /* FNImageDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNImageDetailsVC.swift; sourceTree = "<group>"; };
+		4AA753FB22E7046600A696A6 /* FNImageDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNImageDetailsVM.swift; sourceTree = "<group>"; };
+		4AA753FE22E733A200A696A6 /* FNButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNButtonAction.swift; sourceTree = "<group>"; };
 		4AD22D5922E196A3009299C0 /* FNPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNPlayerCell.swift; sourceTree = "<group>"; };
 		4AD22D5A22E196A3009299C0 /* FNPlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FNPlayerCell.xib; sourceTree = "<group>"; };
 		4AD22D6222E1A82E009299C0 /* TeamObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamObject.swift; sourceTree = "<group>"; };
@@ -127,10 +149,10 @@
 		4A20AE5B22E07DB900FD6BE3 /* GalleryTab */ = {
 			isa = PBXGroup;
 			children = (
-				4A20AE6122E0A62A00FD6BE3 /* Network Service */,
 				4A20AE5E22E0A5AA00FD6BE3 /* View Controller */,
 				4A20AE5F22E0A5EE00FD6BE3 /* Model */,
 				4A20AE6022E0A5F800FD6BE3 /* View Model */,
+				4AA753F622E6EE5700A696A6 /* Network Service */,
 			);
 			path = GalleryTab;
 			sourceTree = "<group>";
@@ -139,6 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				4A20AE5C22E07DDA00FD6BE3 /* FNGalleryVC.swift */,
+				4AA753F222E6E8FE00A696A6 /* FNGalleryCell.swift */,
+				4AA753F322E6E8FE00A696A6 /* FNGalleryCell.xib */,
+				4AA753F922E7044400A696A6 /* FNImageDetailsVC.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -146,6 +171,7 @@
 		4A20AE5F22E0A5EE00FD6BE3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4AA753EE22E6E44300A696A6 /* GalleryObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,15 +179,10 @@
 		4A20AE6022E0A5F800FD6BE3 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				4AA753F022E6E4A700A696A6 /* FNGalleryVM.swift */,
+				4AA753FB22E7046600A696A6 /* FNImageDetailsVM.swift */,
 			);
 			path = "View Model";
-			sourceTree = "<group>";
-		};
-		4A20AE6122E0A62A00FD6BE3 /* Network Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Network Service";
 			sourceTree = "<group>";
 		};
 		4A20AE6222E0A68600FD6BE3 /* Players Tab */ = {
@@ -187,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				4A20AE6B22E0A8E400FD6BE3 /* FNPlayersVM.swift */,
+				4AA753EC22E6DDE600A696A6 /* FNPlayerDetailsVM.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -245,6 +267,30 @@
 			path = "Network Layer";
 			sourceTree = "<group>";
 		};
+		4AA753E522E6D0B200A696A6 /* Cached Data */ = {
+			isa = PBXGroup;
+			children = (
+				4AA753E622E6D0CF00A696A6 /* FNCacheManager.swift */,
+			);
+			path = "Cached Data";
+			sourceTree = "<group>";
+		};
+		4AA753F622E6EE5700A696A6 /* Network Service */ = {
+			isa = PBXGroup;
+			children = (
+				4AA753F722E6EE7A00A696A6 /* GalleryService.swift */,
+			);
+			path = "Network Service";
+			sourceTree = "<group>";
+		};
+		4AA753FD22E7337900A696A6 /* IBAction Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4AA753FE22E733A200A696A6 /* FNButtonAction.swift */,
+			);
+			path = "IBAction Protocol";
+			sourceTree = "<group>";
+		};
 		4AD22D5D22E1A3EC009299C0 /* Teams Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD22D6822E1A8CD009299C0 /* FNTeamsVM.swift */,
+				4AA753EA22E6D5F500A696A6 /* FNTeamDetailsVM.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -312,13 +359,15 @@
 		4ADA759422DC5BF2001E76AF /* Football News */ = {
 			isa = PBXGroup;
 			children = (
-				4AD22D5D22E1A3EC009299C0 /* Teams Tab */,
 				4A4A799922DF426200747126 /* Constants */,
+				4AA753FD22E7337900A696A6 /* IBAction Protocol */,
 				4A4F268722DE027800AFCC93 /* Network Layer */,
+				4AA753E522E6D0B200A696A6 /* Cached Data */,
 				4A20AE5822E05B0200FD6BE3 /* Shared Data */,
 				4A20AE5322E0524000FD6BE3 /* Splash Screen */,
 				4A4F267922DDA56600AFCC93 /* NewsFeedTab */,
 				4A20AE5B22E07DB900FD6BE3 /* GalleryTab */,
+				4AD22D5D22E1A3EC009299C0 /* Teams Tab */,
 				4A20AE6222E0A68600FD6BE3 /* Players Tab */,
 				4ADA75A822DC8026001E76AF /* View */,
 				4ADA759522DC5BF2001E76AF /* AppDelegate.swift */,
@@ -452,6 +501,7 @@
 				4A4A799622DF3E0700747126 /* FNNewsCell.xib in Resources */,
 				4A20AE5222E0520B00FD6BE3 /* Splash.storyboard in Resources */,
 				4A4A798B22DEF64100747126 /* FNVideoCell.xib in Resources */,
+				4AA753F522E6E8FE00A696A6 /* FNGalleryCell.xib in Resources */,
 				4ADA759D22DC5BF3001E76AF /* Assets.xcassets in Resources */,
 				4ADA759B22DC5BF2001E76AF /* Main.storyboard in Resources */,
 				4A4A799222DF3DF200747126 /* FNFactCell.xib in Resources */,
@@ -531,20 +581,29 @@
 				4A20AE6A22E0A81C00FD6BE3 /* PlayerObject.swift in Sources */,
 				4A4A799522DF3E0700747126 /* FNNewsCell.swift in Sources */,
 				4A20AE5A22E05B1600FD6BE3 /* FNDataManager.swift in Sources */,
+				4AA753E722E6D0CF00A696A6 /* FNCacheManager.swift in Sources */,
+				4AA753F422E6E8FE00A696A6 /* FNGalleryCell.swift in Sources */,
 				4AD22D6322E1A82E009299C0 /* TeamObject.swift in Sources */,
 				4A4A799822DF41E500747126 /* FNConstants.swift in Sources */,
 				4A4A798122DEF33000747126 /* NetworkEngine.swift in Sources */,
 				4A20AE5D22E07DDA00FD6BE3 /* FNGalleryVC.swift in Sources */,
 				4AD22D5B22E196A3009299C0 /* FNPlayerCell.swift in Sources */,
+				4AA753EB22E6D5F500A696A6 /* FNTeamDetailsVM.swift in Sources */,
 				4A4A799122DF3DF200747126 /* FNFactCell.swift in Sources */,
 				4A20AE5722E0528100FD6BE3 /* FNSplash.swift in Sources */,
 				4AD64E7022E5C863007CB43A /* FNPlayerDetailsVC.swift in Sources */,
+				4AA753FA22E7044400A696A6 /* FNImageDetailsVC.swift in Sources */,
 				4AD22D6722E1A894009299C0 /* TeamService.swift in Sources */,
+				4AA753F822E6EE7A00A696A6 /* GalleryService.swift in Sources */,
 				4A4A798E22DF0B2700747126 /* NewsfeedService.swift in Sources */,
 				4A20AE6C22E0A8E400FD6BE3 /* FNPlayersVM.swift in Sources */,
 				4ADA759622DC5BF2001E76AF /* AppDelegate.swift in Sources */,
+				4AA753EF22E6E44300A696A6 /* GalleryObject.swift in Sources */,
 				4AD22D6522E1A870009299C0 /* FNTeamsVC.swift in Sources */,
+				4AA753FC22E7046600A696A6 /* FNImageDetailsVM.swift in Sources */,
 				4A4F267722DC890300AFCC93 /* NewsFeedObject.swift in Sources */,
+				4AA753ED22E6DDE600A696A6 /* FNPlayerDetailsVM.swift in Sources */,
+				4AA753FF22E733A300A696A6 /* FNButtonAction.swift in Sources */,
 				4A20AE6E22E0A9F400FD6BE3 /* PlayerService.swift in Sources */,
 				4AD64E6E22E58FC1007CB43A /* FNTeamDetailsVC.swift in Sources */,
 				4AD22D6922E1A8CD009299C0 /* FNTeamsVM.swift in Sources */,
@@ -552,6 +611,7 @@
 				4A4A798A22DEF64100747126 /* FNVideoCell.swift in Sources */,
 				4A4F268622DDE3A500AFCC93 /* FNNewsfeedVM.swift in Sources */,
 				4A20AE6822E0A6BE00FD6BE3 /* FNPlayersVC.swift in Sources */,
+				4AA753F122E6E4A700A696A6 /* FNGalleryVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

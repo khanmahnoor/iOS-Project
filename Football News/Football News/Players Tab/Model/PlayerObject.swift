@@ -9,8 +9,9 @@
 import Foundation
 
 struct PlayerObject : Codable {
-    var name : String
-    var club : String
-    var description : String
-    var imageUrl : String
+    // MARK: Properties
+    var name        :   String
+    var club        :   String
+    var imageUrl    :   String
+    var description :   String
 }

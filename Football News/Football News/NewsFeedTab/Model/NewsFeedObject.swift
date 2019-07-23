@@ -9,15 +9,19 @@
 import Foundation
 
 struct NewsFeedObject : Codable {
-    var url : String
-    var title : String
+    // MARK: Properties
+    var type        : Int
+    var url         : String
+    var title       : String
     var description : String
-    var type : Int
-    
+}
+
+// MARK: Functions
+extension NewsFeedObject {
     func getVideoID () -> String {
-        if let index = self.url.lastIndex(of: "/") {
-            let range = self.url.index(after: index)
-            let ID = String(self.url[range...])
+        if let index    =   url.lastIndex(of: "/") {
+            let range   =   url.index(after: index)
+            let ID      =   String(url[range...])
             return ID
         }
         return "rdjnkb4ONWk"

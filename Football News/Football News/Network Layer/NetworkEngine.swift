@@ -12,9 +12,8 @@ import FirebaseDatabase
 
 protocol NetworkEngine {}
 
-let imageCache = NSCache<NSString,UIImage>()
-
 extension NetworkEngine {
+    // MARK: data fetching functions
      func addFirebaseObserver<T : Codable>(node : String, observerType : DataEventType, decodedData : @escaping (_  objects : [T]?) -> ()) {
         let ref : DatabaseReference = Database.database().reference()
         ref.child(node).observe(observerType, with: { (dataSnapshot) in
@@ -31,9 +30,11 @@ extension NetworkEngine {
             }
         }, withCancel: {Error in
             print (Error)
+            // pass through to appropriate class and show user prompt
         })
     }
     
+    // MARK: image downloading and caching functions
     func downloadImage(imageUrl : URL, image : @escaping (_ image : UIImage)->()) {
         let dataTask = URLSession.shared.dataTask(with: imageUrl) { (data, response, error ) in
             var downloadedImage : UIImage?
@@ -41,17 +42,17 @@ extension NetworkEngine {
                 downloadedImage = UIImage(data: data)
             }
             if let image = downloadedImage {
-                imageCache.setObject(image, forKey: imageUrl.absoluteString as NSString)
+                FNCacheManager.shared.imageCache.setObject(image, forKey: imageUrl.absoluteString as NSString)
             }
             DispatchQueue.main.async {
-                image(downloadedImage ?? UIImage())
+                image(downloadedImage ?? UIImage(named: "football")!)
             }
         }
         dataTask.resume()
     }
     
     func getImage(imageUrl : URL, image : @escaping (_ image : UIImage)->()) {
-        if let cachedImage = imageCache.object(forKey: imageUrl.absoluteString as NSString) {
+        if let cachedImage = FNCacheManager.shared.imageCache.object(forKey: imageUrl.absoluteString as NSString) {
             image(cachedImage)
         }
         else {

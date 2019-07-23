@@ -8,20 +8,26 @@
 
 import Foundation
 
+//struct
 enum FNConstants : String {
+    // MARK: NIB Names
+    case FACT_NIB           =   "FNFactCell"
+    case NEWS_NIB           =   "FNNewsCell"
+    case TEAM_NIB           =   "FNTeamCell"
+    case VIDEO_NIB          =   "FNVideoCell"
+    case PLAYER_NIB         =   "FNPlayerCell"
+    case GALLERY_NIB        =   "FNGalleryCell"
     
-    case VIDEO_NIB  =   "FNVideoCell"
-    case FACT_NIB   =   "FNFactCell"
-    case NEWS_NIB   =   "FNNewsCell"
-    case PLAYER_NIB =   "FNPlayerCell"
-    case TEAM_NIB   =   "FNTeamCell"
+    // MARK: Segue Identifiers
+    case TEAMS_SEGUE        =   "teamsSegue"
+    case PLAYERS_SEGUE      =   "playersSegue"
+    case GALLERY_SEGUE      =   "gallerySegue"
     
-    case TEAMS_SEGUE    =   "teamsSegue"
-    case PLAYERS_SEGUE  =   "playersSegue"
-    
-    case VIDEO_IDENTIFIER   =   "VideoCellIdentifier"
+    // MARK: Cell Identifiers
     case FACT_IDENTIFIER    =   "FactCellIdentifier"
     case NEWS_IDENTIFIER    =   "NewsCellIdentifier"
-    case PLAYER_IDENTIFIER  =   "PlayerCellIdentifier"
     case TEAM_IDENTIFIER    =   "TeamCellIdentifier"
+    case VIDEO_IDENTIFIER   =   "VideoCellIdentifier"
+    case PLAYER_IDENTIFIER  =   "PlayerCellIdentifier"
+    case GALLERY_IDENTIFIER =   "GalleryCellIdentifier"
 }

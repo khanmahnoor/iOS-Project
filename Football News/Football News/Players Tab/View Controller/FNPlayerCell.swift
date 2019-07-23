@@ -10,20 +10,22 @@ import UIKit
 
 class FNPlayerCell: UITableViewCell {
     
-    @IBOutlet weak var playerImage: UIImageView!
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerClub: UILabel!
+    // MARK: Outlets
+    @IBOutlet weak var playerName   :   UILabel!
+    @IBOutlet weak var playerClub   :   UILabel!
+    @IBOutlet weak var playerImage  :   UIImageView!
 }
 
+// MARK: Populating Player Cell
 extension FNPlayerCell : NetworkEngine {
     func setPlayer(player : PlayerObject) {
-        playerName.text = player.name
-        playerClub.text = player.club
-        playerImage.layer.borderWidth = 1
-        playerImage.layer.borderColor = UIColor.white.cgColor
+        playerName.text                 =   player.name
+        playerClub.text                 =   player.club
+        playerImage.layer.borderWidth   =   1
+        playerImage.layer.borderColor   =   UIColor.white.cgColor
         if let url : URL = URL(string: player.imageUrl) {
             getImage(imageUrl: url) { (UIImage) in
-                self.playerImage.image = UIImage
+                self.playerImage.image  =   UIImage
             }
         }
     }

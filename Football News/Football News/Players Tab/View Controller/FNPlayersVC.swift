@@ -10,9 +10,11 @@ import UIKit
 
 class FNPlayersVC: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    var playersVM : FNPlayersVM?
+    // MARK: Properties and Outlets
+    var playersVM                   :   FNPlayersVM?
+    @IBOutlet weak var tableView    :   UITableView!
     
+    // MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         registerProtocols()
@@ -25,11 +27,12 @@ class FNPlayersVC: UIViewController {
         guard let item = sender as? PlayerObject else { return }
         if segue.identifier == FNConstants.PLAYERS_SEGUE.rawValue {
             let destination = segue.destination as? FNPlayerDetailsVC
-            destination?.getPlayerDetails(player: item)
+            destination?.initViewModel(player: item)
         }
     }
 }
 
+// MARK: Registration Functions
 extension FNPlayersVC {
     func registerProtocols() {
         tableView.delegate = self
@@ -52,6 +55,7 @@ extension FNPlayersVC {
     }
 }
 
+// MARK: Table View Functions
 extension FNPlayersVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playersVM?.itemCount ?? 0
@@ -63,9 +67,7 @@ extension FNPlayersVC : UITableViewDelegate, UITableViewDataSource {
         cell.setPlayer(player: player)
         return cell
     }
-}
-
-extension FNPlayersVC {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let team = playersVM?.itemAt(indexPath)

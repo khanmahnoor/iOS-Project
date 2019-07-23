@@ -9,18 +9,18 @@
 import Foundation
 
 class FNDataManager {
+    // MARK: Properties
     static let shared = FNDataManager()
+    var model           : [NewsFeedObject]?
     var feedDataFetched : (()->())?
-    var model : [NewsFeedObject]?
+    
+    // MARK: Initializer
     private init() {
         fetchFeed()
     }
-    
-    func returnModel()  -> [NewsFeedObject]{
-        return model ?? []
-    }
 }
 
+// MARK: Fetch Feed
 extension FNDataManager : NewsfeedService {
     func fetchFeed() {
         fetchNewsfeed { (objects) in

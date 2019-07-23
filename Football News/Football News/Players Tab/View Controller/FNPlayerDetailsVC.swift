@@ -9,38 +9,33 @@
 import UIKit
 
 class FNPlayerDetailsVC: UIViewController {
-
-    var player : PlayerObject?
-    @IBOutlet weak var playerName : UILabel!
-    @IBOutlet weak var playerClub : UILabel!
-    @IBOutlet weak var playerDescription : UILabel!
-    @IBOutlet weak var playerImage : UIImageView!
+    // MARK: Properties and Outlets
+    var playerDetailsVM                     :   FNPlayerDetailsVM?
+    @IBOutlet weak var playerName           :   UILabel!
+    @IBOutlet weak var playerClub           :   UILabel!
+    @IBOutlet weak var playerImage          :   UIImageView!
+    @IBOutlet weak var playerDescription    :   UILabel!
     
+    // MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setPlayerDetails()
     }
 }
 
+// MARK: View Model Init and Setting Outlets
 extension FNPlayerDetailsVC {
-    func getPlayerDetails(player : PlayerObject) {
-        self.player = player
+    func initViewModel(player : PlayerObject) {
+        self.playerDetailsVM = FNPlayerDetailsVM(player: player)
     }
     
     func setPlayerDetails() {
-        playerName.text = player?.name
-        playerClub.text = player?.club
-        playerDescription.text = player?.description
-        setImage(image : player?.imageUrl ?? "")
+        playerName.text = playerDetailsVM?.getPlayerName()
+        playerClub.text = playerDetailsVM?.getPlayerClub()
+        playerDescription.text = playerDetailsVM?.getPlayerDescription()
+        playerDetailsVM?.getPlayerImage(onSuccess: { (UIImage) in
+            self.playerImage.image = UIImage
+        })
     }
 }
 
-extension FNPlayerDetailsVC : NetworkEngine {
-    func setImage(image : String) {
-        if let url : URL = URL(string: image) {
-            getImage(imageUrl: url) { (UIImage) in
-                self.playerImage.image = UIImage
-            }
-        }
-    }
-}

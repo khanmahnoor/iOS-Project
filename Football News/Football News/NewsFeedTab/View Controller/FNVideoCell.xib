@@ -31,6 +31,9 @@
                         <state key="normal" title="Share">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="shareButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vps-zS-EGI"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foQ-ac-f60">
                         <rect key="frame" x="8" y="266" width="194.5" height="17.5"/>
@@ -48,6 +51,7 @@
                     <constraint firstItem="foQ-ac-f60" firstAttribute="top" secondItem="2HS-TY-mZ8" secondAttribute="bottom" constant="8" id="Hbo-6K-rE1"/>
                     <constraint firstItem="2HS-TY-mZ8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="UG5-Zw-rPp"/>
                     <constraint firstItem="foQ-ac-f60" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Ylb-qW-ncy"/>
+                    <constraint firstItem="3DG-aP-ych" firstAttribute="height" secondItem="foQ-ac-f60" secondAttribute="height" id="aap-x6-enM"/>
                     <constraint firstAttribute="trailing" secondItem="2HS-TY-mZ8" secondAttribute="trailing" constant="5" id="bLj-Q4-scP"/>
                     <constraint firstAttribute="bottom" secondItem="foQ-ac-f60" secondAttribute="bottom" constant="8" id="e49-cb-eJp"/>
                     <constraint firstAttribute="trailing" secondItem="3DG-aP-ych" secondAttribute="trailing" constant="8" id="fwe-j3-RTm"/>
@@ -57,6 +61,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="sButton" destination="3DG-aP-ych" id="iEh-In-Dsj"/>
                 <outlet property="video" destination="2HS-TY-mZ8" id="zlY-SN-zwk"/>
             </connections>
             <point key="canvasLocation" x="261.59420289855075" y="68.303571428571431"/>

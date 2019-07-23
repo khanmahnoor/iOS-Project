@@ -1,16 +1,16 @@
 //
-//  FNTeamsVM.swift
+//  FNGalleryVM.swift
 //  Football News
 //
-//  Created by Mahnoor Khan on 19/07/2019.
+//  Created by Mahnoor Khan on 23/07/2019.
 //  Copyright © 2019 Mahnoor Khan. All rights reserved.
 //
 
 import Foundation
 
-class FNTeamsVM {
+class FNGalleryVM {
     // MARK: Properties
-    var model       :   [TeamObject]?
+    var model       :   [GalleryObject]?
     var itemCount   :   Int {
         get {
             return model?.count ?? 0
@@ -19,26 +19,27 @@ class FNTeamsVM {
     
     // MARK: Initializer
     init() {
-        getTeams()
+        getGallery()
     }
 }
 
-// MARK: Accessing Model Objects
-extension FNTeamsVM {
-    func itemAt(_ indexPath: IndexPath) -> TeamObject? {
+// MARK: Functions
+extension FNGalleryVM {
+    func itemAt(_ indexPath: IndexPath) -> GalleryObject? {
         guard let _model = model, itemCount > 0 else { return nil }
         return _model[indexPath.row]
     }
 }
 
 // MARK: Fetching Objects
-extension FNTeamsVM : TeamService {
-    func getTeams() {
-        fetchTeams {(objects) in
-            if let fetchedObjects : [TeamObject] = objects {
+extension FNGalleryVM : GalleryService {
+    func getGallery() {
+        fetchGallery { (objects) in
+            if let fetchedObjects : [GalleryObject] = objects {
                 self.model = fetchedObjects
             }
             else {
+                
             }
         }
     }

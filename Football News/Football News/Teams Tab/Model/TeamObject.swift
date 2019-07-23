@@ -9,8 +9,9 @@
 import Foundation
 
 struct TeamObject : Codable {
-    var country : String
-    var description : String
-    var flagUrl : String
-    var name : String
+    // MARK: Properties
+    var name        :   String
+    var country     :   String
+    var flagUrl     :   String
+    var description :   String
 }

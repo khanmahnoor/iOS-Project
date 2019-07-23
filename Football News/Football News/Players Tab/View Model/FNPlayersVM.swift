@@ -9,19 +9,21 @@
 import Foundation
 
 class FNPlayersVM {
-    var model : [PlayerObject]?
-    
-    var itemCount : Int {
+    // MARK: Properties
+    var model       : [PlayerObject]?
+    var itemCount   : Int {
         get {
             return model?.count ?? 0
         }
     }
     
+    // MARK: Initializer
     init() {
         getPlayers()
     }
 }
 
+// MARK: Accessing Model Objects
 extension FNPlayersVM {
     func itemAt(_ indexPath: IndexPath) -> PlayerObject? {
         guard let _model = model, itemCount > 0 else { return nil }
@@ -29,6 +31,7 @@ extension FNPlayersVM {
     }
 }
 
+// MARK: Fetching Objects
 extension FNPlayersVM : PlayerService {
     func getPlayers() {
         fetchPlayers { (objects) in
@@ -36,7 +39,7 @@ extension FNPlayersVM : PlayerService {
                 self.model = fetchedObjects
             }
             else {
-                
+                // add appropriate else case here.
             }
         }
     }

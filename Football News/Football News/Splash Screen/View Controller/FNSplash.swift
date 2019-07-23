@@ -25,8 +25,8 @@ class  FNSplash: UIViewController {
 
 extension FNSplash {
     func proceedToHomeScreen() {        
-        let targetStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        if let targetViewController = targetStoryboard.instantiateInitialViewController() {
+        let targetStoryboard        =   UIStoryboard(name: "Main", bundle: nil)
+        if let targetViewController =   targetStoryboard.instantiateInitialViewController() {
             (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = targetViewController
         }
     }

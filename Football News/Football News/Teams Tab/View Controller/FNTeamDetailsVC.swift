@@ -10,11 +10,12 @@ import UIKit
 
 class FNTeamDetailsVC: UIViewController {
 
-    var team : TeamObject?
-    @IBOutlet weak var teamName : UILabel!
-    @IBOutlet weak var teamFlag : UIImageView!
-    @IBOutlet weak var teamCountry: UILabel!
-    @IBOutlet weak var teamDescription: UILabel!
+    // MARK: Properties and Outlets
+    var teamDetailsVM : FNTeamDetailsVM?
+    @IBOutlet weak var teamName         :   UILabel!
+    @IBOutlet weak var teamFlag         :   UIImageView!
+    @IBOutlet weak var teamCountry      :   UILabel!
+    @IBOutlet weak var teamDescription  :   UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,26 +23,20 @@ class FNTeamDetailsVC: UIViewController {
     }
 }
 
+// MARK: View Model Init and Setting Outlets
 extension FNTeamDetailsVC {
-    func getTeamDetails(team : TeamObject) {
-        self.team = team
+    func initViewModel(team : TeamObject) {
+        self.teamDetailsVM = FNTeamDetailsVM(team : team)
     }
     
     func setTeamDetails() {
-        teamName.text = team?.name
-        teamCountry.text = team?.country
-        teamDescription.text = team?.description
-        teamFlag.layer.borderWidth = 1
-        setFlag(flag: team?.flagUrl ?? "")
-    }
-}
-
-extension FNTeamDetailsVC : NetworkEngine {
-    func setFlag(flag : String) {
-        if let url : URL = URL(string: flag) {
-            getImage(imageUrl: url) { (UIImage) in
-                self.teamFlag.image = UIImage
-            }
-        }
+        teamFlag.layer.borderWidth  =   1
+        teamFlag.layer.borderColor  =   UIColor.white.cgColor
+        teamName.text               =   teamDetailsVM?.getTeamName()
+        teamCountry.text            =   teamDetailsVM?.getTeamCountry()
+        teamDescription.text        =   teamDetailsVM?.getTeamDescription()
+        teamDetailsVM?.getTeamFlag(onSuccess: { (UIImage) in
+            self.teamFlag.image     =   UIImage
+        })
     }
 }
