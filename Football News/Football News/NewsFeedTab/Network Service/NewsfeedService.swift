@@ -17,7 +17,7 @@ extension NewsfeedService {
     
     func fetchNewsfeed(onSuccess : @escaping (fetchedData)) {
         let node = "Newsfeed"
-        let observerType = DataEventType.value
+        let observerType = DataEventType.childAdded
         addFirebaseObserver(node: node, observerType: observerType, decodedData: onSuccess)
     }
 }

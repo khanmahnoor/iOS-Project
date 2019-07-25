@@ -13,6 +13,7 @@ class FNGalleryVC: UIViewController {
     var galleryVM                       :   FNGalleryVM?
     @IBOutlet weak var collectionView   :   UICollectionView!
     var collectionViewFlowLayout        :   UICollectionViewFlowLayout!
+    let constants                       :   FNConstants     =   FNConstants()
     
     // MARK: Override Functions
     override func viewDidLoad() {
@@ -25,7 +26,7 @@ class FNGalleryVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let item = sender as? GalleryObject else { return }
-        if segue.identifier == FNConstants.GALLERY_SEGUE.rawValue {
+        if segue.identifier == constants.GALLERY_SEGUE {
             let destination = segue.destination as? FNImageDetailsVC
             destination?.initViewModel(galleryItem: item)
         }
@@ -44,8 +45,8 @@ extension FNGalleryVC {
     }
     
     func registerNib() {
-        let nib = UINib(nibName: FNConstants.GALLERY_NIB.rawValue, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: FNConstants.GALLERY_IDENTIFIER.rawValue)
+        let nib = UINib(nibName: constants.GALLERY_NIB, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: constants.GALLERY_IDENTIFIER)
     }
     
     func setupCollectionViewItemSize() {
@@ -79,7 +80,7 @@ extension FNGalleryVC : UICollectionViewDelegate, UICollectionViewDataSource {
         guard let galleryItem = galleryVM?.itemAt(indexPath) else {
             return UICollectionViewCell()
         }
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FNConstants.GALLERY_IDENTIFIER.rawValue, for: indexPath) as? FNGalleryCell else  {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: constants.GALLERY_IDENTIFIER, for: indexPath) as? FNGalleryCell else  {
             print("here")
             return UICollectionViewCell()
         }
@@ -90,6 +91,6 @@ extension FNGalleryVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = galleryVM?.itemAt(indexPath)
-        performSegue(withIdentifier: FNConstants.GALLERY_SEGUE.rawValue, sender: item)
+        performSegue(withIdentifier: constants.GALLERY_SEGUE, sender: item)
     }
 }

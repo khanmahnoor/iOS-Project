@@ -20,27 +20,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wg-IA-jvJ">
-                        <rect key="frame" x="160" y="18" width="225" height="22.5"/>
+                        <rect key="frame" x="120" y="18.5" width="265" height="22.5"/>
                         <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="18"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ePh-Wg-NWC">
-                        <rect key="frame" x="12" y="12" width="140" height="75"/>
+                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ePh-Wg-NWC">
+                        <rect key="frame" x="12" y="12.5" width="100" height="80"/>
                         <color key="tintColor" red="0.52974373100000005" green="0.88112411739999996" blue="0.1667971255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="75" id="ccY-J6-Jjq"/>
-                            <constraint firstAttribute="width" constant="140" id="mdK-V0-e8q"/>
+                            <constraint firstAttribute="height" constant="80" id="ccY-J6-Jjq"/>
+                            <constraint firstAttribute="width" constant="100" id="mdK-V0-e8q"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LN2-x1-s86">
-                        <rect key="frame" x="160" y="48.5" width="225" height="14.5"/>
+                        <rect key="frame" x="120" y="49" width="265" height="14.5"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="ePh-Wg-NWC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="4tf-KS-TBD"/>
                     <constraint firstItem="ePh-Wg-NWC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="7pA-qQ-nJz"/>

@@ -25,7 +25,7 @@
                             <constraint firstAttribute="height" constant="18.5" id="OEK-2U-bOP"/>
                         </constraints>
                         <state key="normal" title="Read More">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
                             <action selector="readButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0Cz-Pc-NdW"/>
@@ -34,7 +34,7 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfR-eG-aGo">
                         <rect key="frame" x="210.5" y="198" width="194.5" height="18.5"/>
                         <state key="normal" title="Share">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
                             <action selector="shareButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jPc-fj-gcR"/>
@@ -43,7 +43,6 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DX-Zh-Tlc">
                         <rect key="frame" x="8" y="8" width="397" height="21"/>
                         <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tt8-SO-yyH">
@@ -73,7 +72,7 @@
                     <constraint firstItem="xCs-C6-RNY" firstAttribute="top" secondItem="tt8-SO-yyH" secondAttribute="bottom" constant="8" id="unt-Ui-3Vc"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="factImage" destination="tt8-SO-yyH" id="pwo-zM-o5P"/>

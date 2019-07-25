@@ -20,10 +20,7 @@ class FNTeamCell: UITableViewCell {
 extension FNTeamCell : NetworkEngine {
     func setTeam(team : TeamObject) {
         country.text                    =   team.country
-        teamName.text                   =   team.name
-        flagImage.layer.borderWidth     =   1
-        flagImage.layer.borderColor     =   UIColor.white.cgColor
-        
+        teamName.text                   =   team.name        
         if let url : URL = URL(string: team.flagUrl) {
             getImage(imageUrl: url) { (UIImage) in
                 self.flagImage.image    = UIImage

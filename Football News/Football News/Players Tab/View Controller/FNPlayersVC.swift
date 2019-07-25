@@ -13,6 +13,7 @@ class FNPlayersVC: UIViewController {
     // MARK: Properties and Outlets
     var playersVM                   :   FNPlayersVM?
     @IBOutlet weak var tableView    :   UITableView!
+    let constants                   :   FNConstants     =   FNConstants()
     
     // MARK: Override Functions
     override func viewDidLoad() {
@@ -24,7 +25,7 @@ class FNPlayersVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let item = sender as? PlayerObject else { return }
-        if segue.identifier == FNConstants.PLAYERS_SEGUE.rawValue {
+        if segue.identifier == constants.PLAYERS_SEGUE {
             let destination = segue.destination as? FNPlayerDetailsVC
             destination?.initViewModel(player: item)
         }
@@ -39,8 +40,8 @@ extension FNPlayersVC {
     }
     
     func registerNibs() {
-        let videoCellNib = UINib(nibName: FNConstants.PLAYER_NIB.rawValue , bundle: nil)
-        tableView.register(videoCellNib, forCellReuseIdentifier: FNConstants.PLAYER_IDENTIFIER.rawValue)
+        let videoCellNib = UINib(nibName: constants.PLAYER_NIB , bundle: nil)
+        tableView.register(videoCellNib, forCellReuseIdentifier: constants.PLAYER_IDENTIFIER)
     }
     
     func initViewModel() {
@@ -56,7 +57,7 @@ extension FNPlayersVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let player = playersVM?.itemAt(indexPath) else { return UITableViewCell() }
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.PLAYER_IDENTIFIER.rawValue) as? FNPlayerCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: constants.PLAYER_IDENTIFIER) as? FNPlayerCell else { return UITableViewCell() }
         cell.setPlayer(player: player)
         return cell
     }
@@ -64,6 +65,6 @@ extension FNPlayersVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let team = playersVM?.itemAt(indexPath)
-        performSegue(withIdentifier: FNConstants.PLAYERS_SEGUE.rawValue, sender: team)
+        performSegue(withIdentifier: constants.PLAYERS_SEGUE, sender: team)
     }
 }

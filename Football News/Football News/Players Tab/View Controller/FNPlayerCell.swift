@@ -19,10 +19,12 @@ class FNPlayerCell: UITableViewCell {
 // MARK: Populating Player Cell
 extension FNPlayerCell : NetworkEngine {
     func setPlayer(player : PlayerObject) {
+//        playerImage.layer.borderWidth   =   1
+        playerImage.layer.cornerRadius  =   playerImage.frame.size.width / 2
         playerName.text                 =   player.name
         playerClub.text                 =   player.club
-        playerImage.layer.borderWidth   =   1
-        playerImage.layer.borderColor   =   UIColor.white.cgColor
+//        playerImage.layer.borderColor   =   UIColor.black.cgColor
+        
         if let url : URL = URL(string: player.imageUrl) {
             getImage(imageUrl: url) { (UIImage) in
                 self.playerImage.image  =   UIImage

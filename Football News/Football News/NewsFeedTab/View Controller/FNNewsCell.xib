@@ -23,7 +23,7 @@
                         <rect key="frame" x="8" y="177" width="194.5" height="19.5"/>
                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <state key="normal" title="Read More">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
                             <action selector="readButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="T4x-hK-Gvz"/>
@@ -33,7 +33,7 @@
                         <rect key="frame" x="210.5" y="177" width="194.5" height="19.5"/>
                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <state key="normal" title="Share">
-                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
                             <action selector="shareButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="w4g-oW-f2f"/>
@@ -48,7 +48,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="8xT-IZ-Nxw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="09g-Lf-EM9"/>
                     <constraint firstAttribute="bottom" secondItem="Alw-Cs-MXi" secondAttribute="bottom" constant="8" id="AS1-vU-yoG"/>

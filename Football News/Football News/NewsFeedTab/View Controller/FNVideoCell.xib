@@ -29,7 +29,7 @@
                         <rect key="frame" x="210.5" y="266" width="194.5" height="17.5"/>
                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <state key="normal" title="Share">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
                             <action selector="shareButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vps-zS-EGI"/>
@@ -39,14 +39,14 @@
                         <rect key="frame" x="8" y="266" width="194.5" height="17.5"/>
                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <state key="normal" title="Watch">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
                             <action selector="watchButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LOp-61-o5Y"/>
                         </connections>
                     </button>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="3DG-aP-ych" firstAttribute="top" secondItem="2HS-TY-mZ8" secondAttribute="bottom" constant="8" id="3fe-vp-f4D"/>
                     <constraint firstItem="3DG-aP-ych" firstAttribute="width" secondItem="foQ-ac-f60" secondAttribute="width" id="C0M-xb-scV"/>

@@ -13,6 +13,7 @@ class FNTeamsVC: UIViewController {
     // MARK: Properties and Outlets
     var teamsVM                     :   FNTeamsVM?
     @IBOutlet weak var tableView    :   UITableView!
+    let constants                   :   FNConstants     =   FNConstants()
     
     // MARK: Override Functions
     override func viewDidLoad() {
@@ -24,7 +25,7 @@ class FNTeamsVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let item      =   sender as? TeamObject else { return }
-        if segue.identifier ==  FNConstants.TEAMS_SEGUE.rawValue {
+        if segue.identifier ==  constants.TEAMS_SEGUE {
             let destination =   segue.destination as? FNTeamDetailsVC
             destination?.initViewModel(team: item)
         }
@@ -39,8 +40,8 @@ extension FNTeamsVC {
     }
     
     func registerNibs() {
-        let videoCellNib = UINib(nibName: FNConstants.TEAM_NIB.rawValue , bundle: nil)
-        tableView.register(videoCellNib, forCellReuseIdentifier: FNConstants.TEAM_IDENTIFIER.rawValue)
+        let videoCellNib = UINib(nibName: constants.TEAM_NIB , bundle: nil)
+        tableView.register(videoCellNib, forCellReuseIdentifier: constants.TEAM_IDENTIFIER)
     }
     
     func initViewModel() {
@@ -56,13 +57,13 @@ extension FNTeamsVC : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let team = teamsVM?.itemAt(indexPath) else { return UITableViewCell() }
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FNConstants.TEAM_IDENTIFIER.rawValue) as? FNTeamCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: constants.TEAM_IDENTIFIER) as? FNTeamCell else { return UITableViewCell() }
         cell.setTeam(team: team)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let team = teamsVM?.itemAt(indexPath)
-        performSegue(withIdentifier: FNConstants.TEAMS_SEGUE.rawValue, sender: team)
+        performSegue(withIdentifier: constants.TEAMS_SEGUE, sender: team)
     }
 }

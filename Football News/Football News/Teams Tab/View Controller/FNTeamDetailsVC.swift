@@ -30,8 +30,6 @@ extension FNTeamDetailsVC {
     }
     
     func setTeamDetails() {
-        teamFlag.layer.borderWidth  =   1
-        teamFlag.layer.borderColor  =   UIColor.white.cgColor
         teamName.text               =   teamDetailsVM?.getTeamName()
         teamCountry.text            =   teamDetailsVM?.getTeamCountry()
         teamDescription.text        =   teamDetailsVM?.getTeamDescription()

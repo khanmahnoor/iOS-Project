@@ -39,7 +39,7 @@ extension FNTeamDetailsVM {
 
 // MARK: Image Download
 extension FNTeamDetailsVM : NetworkEngine {
-    typealias fetchedFlag = (_ flag : UIImage)->()
+    typealias fetchedFlag = (_ flag : UIImage?)->()
     func getTeamFlag(onSuccess : @escaping (fetchedFlag)) {
         if let url : URL = URL(string: model?.flagUrl ?? "") {
             getImage(imageUrl: url, image: onSuccess)

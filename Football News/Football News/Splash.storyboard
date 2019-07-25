@@ -13,7 +13,7 @@
         <!--Splash-->
         <scene sceneID="FxI-sA-gfm">
             <objects>
-                <viewController id="ukS-hy-QC1" customClass="FNSplash" customModule="Football_News" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="splashScreen" id="ukS-hy-QC1" customClass="FNSplash" customModule="Football_News" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IEQ-rI-CNc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

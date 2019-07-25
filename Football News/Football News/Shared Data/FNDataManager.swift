@@ -18,6 +18,7 @@ class FNDataManager {
     var feedModel           :   [NewsFeedObject]?
     var citiesModel         :   [CityObject]?
     var feedDataFetched     :   (()->())?
+    let constants           :   FNConstants         =   FNConstants()
     
     // MARK: Initializer
     private init() {
@@ -30,7 +31,7 @@ class FNDataManager {
 }
 
 // MARK: Fetch Feed, Players, Teams, Gallery
-extension FNDataManager : NewsfeedService, PlayerService, TeamService, GalleryService {
+extension FNDataManager : NewsfeedService, PlayerService, TeamService, GalleryService, CitiesService {
     func fetchFeed() {
         fetchNewsfeed { (objects) in
             if let fetchedObjects : [NewsFeedObject] = objects {
@@ -65,10 +66,12 @@ extension FNDataManager : NewsfeedService, PlayerService, TeamService, GallerySe
             }
         }
     }
-    
+
     func getCities() {
-        getCities { (fetchedData) in
-            self.citiesModel = fetchedData
+        fetchCities { (objects) in
+            if let fetchedObjects : [CityObject] = objects {
+                self.citiesModel = fetchedObjects
+            }
         }
     }
 }

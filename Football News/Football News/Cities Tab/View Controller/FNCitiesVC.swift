@@ -12,6 +12,7 @@ class FNCitiesVC: UIViewController {
     
     var citiesVM                    :   FNCitiesVM?
     @IBOutlet weak var tableView    :   UITableView!
+    let constants                   :   FNConstants     =   FNConstants()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ extension FNCitiesVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell  =   tableView.dequeueReusableCell(withIdentifier: FNConstants.CITY_IDENTIFIER.rawValue) as? FNCityCell else { return UITableViewCell() }
+        guard let cell  =   tableView.dequeueReusableCell(withIdentifier: constants.CITY_IDENTIFIER) as? FNCityCell else { return UITableViewCell() }
         if let cityObject =  citiesVM?.itemAt(indexPath) {
             cell.setCell(city: cityObject)
         }

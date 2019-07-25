@@ -1,8 +1,8 @@
 //
-//  Constants.swift
+//  FNConstants2.swift
 //  Football News
 //
-//  Created by Mahnoor Khan on 17/07/2019.
+//  Created by Mahnoor Khan on 25/07/2019.
 //  Copyright © 2019 Mahnoor Khan. All rights reserved.
 //
 
@@ -35,8 +35,4 @@ struct FNConstants {
     let VIDEO_IDENTIFIER   =   "VideoCellIdentifier"
     let PLAYER_IDENTIFIER  =   "PlayerCellIdentifier"
     let GALLERY_IDENTIFIER =   "GalleryCellIdentifier"
-    
-    // MARK: API Url
-    let apiUrl                =    URL(string: "https://www.metaweather.com/api/location/search/?query=san")
 }
-

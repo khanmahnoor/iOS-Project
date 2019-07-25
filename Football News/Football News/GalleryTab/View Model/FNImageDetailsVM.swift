@@ -21,7 +21,7 @@ class FNImageDetailsVM {
 
 // MARK: Setting Image
 extension FNImageDetailsVM : NetworkEngine {
-    typealias fetchedImage = (_ playerImage : UIImage)->()
+    typealias fetchedImage = (_ playerImage : UIImage?)->()
     func getPlayerImage(onSuccess : @escaping (fetchedImage)) {
         if let url : URL = URL(string: model?.imageUrl ?? "") {
             getImage(imageUrl: url, image: onSuccess)

@@ -13,6 +13,7 @@ class FNNewsfeedVC: UIViewController {
     // MARK: Properties and Outlets
     @IBOutlet weak var tableView    :   UITableView!
     var newsfeedVM                  :   FNNewsfeedVM?
+    let constants                   :   FNConstants     =   FNConstants()
     
     // MARK: Override Functions
     override func viewDidLoad() {
@@ -31,13 +32,13 @@ extension FNNewsfeedVC {
     }
     
     func registerNibs() {
-        let videoCellNib    =   UINib(nibName: FNConstants.VIDEO_NIB.rawValue , bundle: nil)
-        let factCellNib     =   UINib(nibName: FNConstants.FACT_NIB.rawValue, bundle: nil)
-        let newsCellNib     =   UINib(nibName: FNConstants.NEWS_NIB.rawValue, bundle: nil)
+        let videoCellNib    =   UINib(nibName: constants.VIDEO_NIB, bundle: nil)
+        let factCellNib     =   UINib(nibName: constants.FACT_NIB, bundle: nil)
+        let newsCellNib     =   UINib(nibName: constants.NEWS_NIB, bundle: nil)
         
-        tableView.register(videoCellNib, forCellReuseIdentifier: FNConstants.VIDEO_IDENTIFIER.rawValue)
-        tableView.register(factCellNib, forCellReuseIdentifier: FNConstants.FACT_IDENTIFIER.rawValue)
-        tableView.register(newsCellNib, forCellReuseIdentifier: FNConstants.NEWS_IDENTIFIER.rawValue)
+        tableView.register(videoCellNib, forCellReuseIdentifier: constants.VIDEO_IDENTIFIER)
+        tableView.register(factCellNib, forCellReuseIdentifier: constants.FACT_IDENTIFIER)
+        tableView.register(newsCellNib, forCellReuseIdentifier: constants.NEWS_IDENTIFIER)
     }
     
     func initViewModel() {
@@ -55,7 +56,7 @@ extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
         let feedObject = newsfeedVM?.itemAt(indexPath)
         switch feedObject?.type {
         case 0:
-            guard let cell  =   tableView.dequeueReusableCell(withIdentifier: FNConstants.VIDEO_IDENTIFIER.rawValue) as? FNVideoCell else { return UITableViewCell() }
+            guard let cell  =   tableView.dequeueReusableCell(withIdentifier: constants.VIDEO_IDENTIFIER) as? FNVideoCell else { return UITableViewCell() }
             cell.delegate   =   self
             cell.setTag(buttonTag :  indexPath.row)
             if let vID = feedObject?.getVideoID() {
@@ -63,7 +64,7 @@ extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         case 1:
-            guard let cell  =   tableView.dequeueReusableCell(withIdentifier: FNConstants.FACT_IDENTIFIER.rawValue) as? FNFactCell else { return UITableViewCell() }
+            guard let cell  =   tableView.dequeueReusableCell(withIdentifier: constants.FACT_IDENTIFIER) as? FNFactCell else { return UITableViewCell() }
             cell.delegate   =   self
             cell.setTag(buttonTag :  indexPath.row)
             if let feedObject = feedObject {
@@ -71,7 +72,7 @@ extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         case 2:
-            guard let cell  =   tableView.dequeueReusableCell(withIdentifier: FNConstants.NEWS_IDENTIFIER.rawValue) as? FNNewsCell else { return UITableViewCell() }
+            guard let cell  =   tableView.dequeueReusableCell(withIdentifier: constants.NEWS_IDENTIFIER) as? FNNewsCell else { return UITableViewCell() }
             cell.delegate   =    self
             cell.setTag(buttonTag :  indexPath.row)
             if let feedObject = feedObject {
@@ -91,15 +92,15 @@ extension FNNewsfeedVC : FNButtonAction {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         switch item.type {
         case 0:
-            let vc = storyboard.instantiateViewController(withIdentifier: FNConstants.VIDEO_DETAILS.rawValue) as! FNVideoDetailsVC
+            let vc = storyboard.instantiateViewController(withIdentifier: constants.VIDEO_DETAILS) as! FNVideoDetailsVC
             vc.initViewModel(feedObject: item)
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:
-            let vc = storyboard.instantiateViewController(withIdentifier: FNConstants.FACT_DETAILS.rawValue) as! FNFactDetailsVC
+            let vc = storyboard.instantiateViewController(withIdentifier: constants.FACT_DETAILS) as! FNFactDetailsVC
             vc.initViewModel(feedObject: item)
             self.navigationController?.pushViewController(vc, animated: true)
         case 2:
-            let vc = storyboard.instantiateViewController(withIdentifier: FNConstants.NEWS_DETAILS.rawValue) as! FNNewsDetailsVC
+            let vc = storyboard.instantiateViewController(withIdentifier: constants.NEWS_DETAILS) as! FNNewsDetailsVC
             vc.initViewModel(feedObject: item)
             self.navigationController?.pushViewController(vc, animated: true)
         default:

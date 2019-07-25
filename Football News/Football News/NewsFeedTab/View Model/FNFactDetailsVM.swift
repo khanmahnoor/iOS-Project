@@ -30,7 +30,7 @@ extension FNFactDetailsVM {
 }
 
 extension FNFactDetailsVM : NetworkEngine {
-    typealias fetchedImage = (_ playerImage : UIImage)->()
+    typealias fetchedImage = (_ playerImage : UIImage?)->()
     func getFactImage(onSuccess : @escaping (fetchedImage)) {
         if let url : URL = URL(string: model?.url ?? "") {
             getImage(imageUrl: url, image: onSuccess)

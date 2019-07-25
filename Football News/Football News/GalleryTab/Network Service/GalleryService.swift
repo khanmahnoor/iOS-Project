@@ -17,7 +17,7 @@ extension GalleryService {
     
     func fetchGallery(onSuccess : @escaping (fetchedData)) {
         let node = "Gallery"
-        let observerType = DataEventType.value
+        let observerType = DataEventType.childAdded
         addFirebaseObserver(node: node, observerType: observerType, decodedData: onSuccess)
     }
 }
