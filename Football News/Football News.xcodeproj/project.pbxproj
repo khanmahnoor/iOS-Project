@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2BF73043ED865B4C2DCE2902 /* Pods_Football_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263130C1DEBA6A07C9B7DF08 /* Pods_Football_News.framework */; };
+		4A013C3222E82C71006A4736 /* FNVideoDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A013C3122E82C71006A4736 /* FNVideoDetailsVC.swift */; };
+		4A013C3422E82FBF006A4736 /* FNVideoDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A013C3322E82FBF006A4736 /* FNVideoDetailsVM.swift */; };
+		4A013C3622E8500E006A4736 /* FNFactDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A013C3522E8500E006A4736 /* FNFactDetailsVC.swift */; };
+		4A013C3822E85023006A4736 /* FNFactDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A013C3722E85023006A4736 /* FNFactDetailsVM.swift */; };
+		4A013C3A22E8503F006A4736 /* FNNewsDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A013C3922E8503F006A4736 /* FNNewsDetailsVC.swift */; };
+		4A013C3C22E85052006A4736 /* FNNewsDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A013C3B22E85052006A4736 /* FNNewsDetailsVM.swift */; };
+		4A013C4322E88967006A4736 /* FNCitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A013C4222E88967006A4736 /* FNCitiesVC.swift */; };
+		4A013C4522E889E0006A4736 /* CityObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A013C4422E889E0006A4736 /* CityObject.swift */; };
+		4A013C4722E88A51006A4736 /* FNCitiesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A013C4622E88A51006A4736 /* FNCitiesVM.swift */; };
+		4A013C4922E88E11006A4736 /* FNCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A013C4822E88E11006A4736 /* FNCityCell.swift */; };
 		4A1F4B6322E4B50A00BC47F5 /* FNTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F4B6122E4B50A00BC47F5 /* FNTeamCell.swift */; };
 		4A1F4B6422E4B50A00BC47F5 /* FNTeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1F4B6222E4B50A00BC47F5 /* FNTeamCell.xib */; };
 		4A20AE5222E0520B00FD6BE3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A20AE5122E0520B00FD6BE3 /* Splash.storyboard */; };
@@ -58,6 +68,16 @@
 
 /* Begin PBXFileReference section */
 		263130C1DEBA6A07C9B7DF08 /* Pods_Football_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Football_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A013C3122E82C71006A4736 /* FNVideoDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNVideoDetailsVC.swift; sourceTree = "<group>"; };
+		4A013C3322E82FBF006A4736 /* FNVideoDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNVideoDetailsVM.swift; sourceTree = "<group>"; };
+		4A013C3522E8500E006A4736 /* FNFactDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNFactDetailsVC.swift; sourceTree = "<group>"; };
+		4A013C3722E85023006A4736 /* FNFactDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNFactDetailsVM.swift; sourceTree = "<group>"; };
+		4A013C3922E8503F006A4736 /* FNNewsDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNNewsDetailsVC.swift; sourceTree = "<group>"; };
+		4A013C3B22E85052006A4736 /* FNNewsDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNNewsDetailsVM.swift; sourceTree = "<group>"; };
+		4A013C4222E88967006A4736 /* FNCitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNCitiesVC.swift; sourceTree = "<group>"; };
+		4A013C4422E889E0006A4736 /* CityObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityObject.swift; sourceTree = "<group>"; };
+		4A013C4622E88A51006A4736 /* FNCitiesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNCitiesVM.swift; sourceTree = "<group>"; };
+		4A013C4822E88E11006A4736 /* FNCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNCityCell.swift; sourceTree = "<group>"; };
 		4A1F4B6122E4B50A00BC47F5 /* FNTeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNTeamCell.swift; sourceTree = "<group>"; };
 		4A1F4B6222E4B50A00BC47F5 /* FNTeamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FNTeamCell.xib; sourceTree = "<group>"; };
 		4A20AE5122E0520B00FD6BE3 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Splash.storyboard; path = ../Splash.storyboard; sourceTree = "<group>"; };
@@ -122,6 +142,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A013C3E22E87F4C006A4736 /* Cities Tab */ = {
+			isa = PBXGroup;
+			children = (
+				4A013C3F22E8891F006A4736 /* View Controller */,
+				4A013C4022E8892E006A4736 /* Model */,
+				4A013C4122E88950006A4736 /* View Model */,
+			);
+			path = "Cities Tab";
+			sourceTree = "<group>";
+		};
+		4A013C3F22E8891F006A4736 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4A013C4222E88967006A4736 /* FNCitiesVC.swift */,
+				4A013C4822E88E11006A4736 /* FNCityCell.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		4A013C4022E8892E006A4736 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A013C4422E889E0006A4736 /* CityObject.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A013C4122E88950006A4736 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A013C4622E88A51006A4736 /* FNCitiesVM.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		4A20AE5322E0524000FD6BE3 /* Splash Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +424,7 @@
 				4A20AE5B22E07DB900FD6BE3 /* GalleryTab */,
 				4AD22D5D22E1A3EC009299C0 /* Teams Tab */,
 				4A20AE6222E0A68600FD6BE3 /* Players Tab */,
+				4A013C3E22E87F4C006A4736 /* Cities Tab */,
 				4ADA75A822DC8026001E76AF /* View */,
 				4ADA759522DC5BF2001E76AF /* AppDelegate.swift */,
 				4ADA75AB22DC835D001E76AF /* GoogleService-Info.plist */,
@@ -400,6 +456,9 @@
 			isa = PBXGroup;
 			children = (
 				4A4F268522DDE3A500AFCC93 /* FNNewsfeedVM.swift */,
+				4A013C3322E82FBF006A4736 /* FNVideoDetailsVM.swift */,
+				4A013C3722E85023006A4736 /* FNFactDetailsVM.swift */,
+				4A013C3B22E85052006A4736 /* FNNewsDetailsVM.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -414,6 +473,9 @@
 				4A4A799022DF3DF200747126 /* FNFactCell.xib */,
 				4A4A799322DF3E0700747126 /* FNNewsCell.swift */,
 				4A4A799422DF3E0700747126 /* FNNewsCell.xib */,
+				4A013C3122E82C71006A4736 /* FNVideoDetailsVC.swift */,
+				4A013C3922E8503F006A4736 /* FNNewsDetailsVC.swift */,
+				4A013C3522E8500E006A4736 /* FNFactDetailsVC.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -577,14 +639,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A013C3C22E85052006A4736 /* FNNewsDetailsVM.swift in Sources */,
 				4A1F4B6322E4B50A00BC47F5 /* FNTeamCell.swift in Sources */,
 				4A20AE6A22E0A81C00FD6BE3 /* PlayerObject.swift in Sources */,
+				4A013C4722E88A51006A4736 /* FNCitiesVM.swift in Sources */,
 				4A4A799522DF3E0700747126 /* FNNewsCell.swift in Sources */,
 				4A20AE5A22E05B1600FD6BE3 /* FNDataManager.swift in Sources */,
 				4AA753E722E6D0CF00A696A6 /* FNCacheManager.swift in Sources */,
 				4AA753F422E6E8FE00A696A6 /* FNGalleryCell.swift in Sources */,
 				4AD22D6322E1A82E009299C0 /* TeamObject.swift in Sources */,
 				4A4A799822DF41E500747126 /* FNConstants.swift in Sources */,
+				4A013C4322E88967006A4736 /* FNCitiesVC.swift in Sources */,
+				4A013C3A22E8503F006A4736 /* FNNewsDetailsVC.swift in Sources */,
+				4A013C4922E88E11006A4736 /* FNCityCell.swift in Sources */,
 				4A4A798122DEF33000747126 /* NetworkEngine.swift in Sources */,
 				4A20AE5D22E07DDA00FD6BE3 /* FNGalleryVC.swift in Sources */,
 				4AD22D5B22E196A3009299C0 /* FNPlayerCell.swift in Sources */,
@@ -596,7 +663,10 @@
 				4AD22D6722E1A894009299C0 /* TeamService.swift in Sources */,
 				4AA753F822E6EE7A00A696A6 /* GalleryService.swift in Sources */,
 				4A4A798E22DF0B2700747126 /* NewsfeedService.swift in Sources */,
+				4A013C3222E82C71006A4736 /* FNVideoDetailsVC.swift in Sources */,
 				4A20AE6C22E0A8E400FD6BE3 /* FNPlayersVM.swift in Sources */,
+				4A013C3622E8500E006A4736 /* FNFactDetailsVC.swift in Sources */,
+				4A013C4522E889E0006A4736 /* CityObject.swift in Sources */,
 				4ADA759622DC5BF2001E76AF /* AppDelegate.swift in Sources */,
 				4AA753EF22E6E44300A696A6 /* GalleryObject.swift in Sources */,
 				4AD22D6522E1A870009299C0 /* FNTeamsVC.swift in Sources */,
@@ -605,10 +675,12 @@
 				4AA753ED22E6DDE600A696A6 /* FNPlayerDetailsVM.swift in Sources */,
 				4AA753FF22E733A300A696A6 /* FNButtonAction.swift in Sources */,
 				4A20AE6E22E0A9F400FD6BE3 /* PlayerService.swift in Sources */,
+				4A013C3822E85023006A4736 /* FNFactDetailsVM.swift in Sources */,
 				4AD64E6E22E58FC1007CB43A /* FNTeamDetailsVC.swift in Sources */,
 				4AD22D6922E1A8CD009299C0 /* FNTeamsVM.swift in Sources */,
 				4A4F267E22DDAA2400AFCC93 /* FNNewsfeedVC.swift in Sources */,
 				4A4A798A22DEF64100747126 /* FNVideoCell.swift in Sources */,
+				4A013C3422E82FBF006A4736 /* FNVideoDetailsVM.swift in Sources */,
 				4A4F268622DDE3A500AFCC93 /* FNNewsfeedVM.swift in Sources */,
 				4A20AE6822E0A6BE00FD6BE3 /* FNPlayersVC.swift in Sources */,
 				4AA753F122E6E4A700A696A6 /* FNGalleryVM.swift in Sources */,

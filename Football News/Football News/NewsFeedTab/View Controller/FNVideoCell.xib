@@ -41,6 +41,9 @@
                         <state key="normal" title="Watch">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="watchButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LOp-61-o5Y"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,6 +66,7 @@
             <connections>
                 <outlet property="sButton" destination="3DG-aP-ych" id="iEh-In-Dsj"/>
                 <outlet property="video" destination="2HS-TY-mZ8" id="zlY-SN-zwk"/>
+                <outlet property="wButton" destination="foQ-ac-f60" id="Dcc-S8-aS6"/>
             </connections>
             <point key="canvasLocation" x="261.59420289855075" y="68.303571428571431"/>
         </tableViewCell>

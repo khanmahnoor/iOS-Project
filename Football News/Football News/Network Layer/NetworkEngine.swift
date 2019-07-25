@@ -59,4 +59,24 @@ extension NetworkEngine {
             downloadImage(imageUrl: imageUrl, image: image)
         }
     }
+    
+    func getCities(onSuccess : @escaping (_ cities : [CityObject])->()) {
+        guard let url = URL(string: "https://www.metaweather.com/api/location/search/?query=san") else { return }
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            if let data = data {
+                print(data)
+                do {
+                    let fetchedObjects = try JSONDecoder().decode([CityObject].self, from: data)
+                    onSuccess(fetchedObjects)
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        dataTask.resume()
+    }
 }

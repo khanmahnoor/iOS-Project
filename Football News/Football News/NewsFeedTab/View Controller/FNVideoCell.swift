@@ -14,13 +14,12 @@ class FNVideoCell: UITableViewCell {
     var buttonTag               :   Int?
     var delegate                :   FNButtonAction?
     @IBOutlet weak var sButton  :   UIButton!
+    @IBOutlet weak var wButton  :   UIButton!
     @IBOutlet weak var video    :   YTPlayerView!
 
     // MARK: Override Functions
     override func awakeFromNib() {
         super.awakeFromNib()
-        registerTag()
-        registerProtocol()
     }
 }
 
@@ -28,14 +27,6 @@ class FNVideoCell: UITableViewCell {
 extension FNVideoCell {
     func setTag(buttonTag : Int) {
         self.buttonTag = buttonTag
-    }
-    
-    func registerTag() {
-        sButton.tag = buttonTag ?? 0
-    }
-    
-    func registerProtocol() {
-        video.delegate = self
     }
     
     func loadVideo(videoID : String) {
@@ -48,16 +39,16 @@ extension FNVideoCell {
     }
 }
 
-// MARK: Player View Delegate
-extension FNVideoCell : YTPlayerViewDelegate {
-    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        video.playVideo()
-    }
-}
-
 // MARK: Share Button Function
 extension FNVideoCell {
     @IBAction func shareButton(_ sender: UIButton) {
-        delegate?.onClick(sender.tag)
+        if let buttonTag = buttonTag {
+            delegate?.onClickShare(buttonTag)
+        }
+    }
+    @IBAction func watchButton(_ sender: UIButton) {
+        if let buttonTag = buttonTag {
+            delegate?.onClickWatch(buttonTag)
+        }
     }
 }

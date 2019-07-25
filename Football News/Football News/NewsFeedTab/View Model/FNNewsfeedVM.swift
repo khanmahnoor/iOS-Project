@@ -19,7 +19,7 @@ class FNNewsfeedVM {
     
     // MARK: Initializers
     init() {
-        self.model = FNDataManager.shared.model
+        self.model = FNDataManager.shared.feedModel
     }
 }
 

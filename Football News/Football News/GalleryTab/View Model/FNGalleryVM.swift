@@ -19,7 +19,7 @@ class FNGalleryVM {
     
     // MARK: Initializer
     init() {
-        getGallery()
+        self.model = FNDataManager.shared.galleryModel
     }
 }
 
@@ -27,20 +27,6 @@ class FNGalleryVM {
 extension FNGalleryVM {
     func itemAt(_ indexPath: IndexPath) -> GalleryObject? {
         guard let _model = model, itemCount > 0 else { return nil }
-        return _model[indexPath.row]
-    }
-}
-
-// MARK: Fetching Objects
-extension FNGalleryVM : GalleryService {
-    func getGallery() {
-        fetchGallery { (objects) in
-            if let fetchedObjects : [GalleryObject] = objects {
-                self.model = fetchedObjects
-            }
-            else {
-                
-            }
-        }
+        return _model[indexPath.item]
     }
 }

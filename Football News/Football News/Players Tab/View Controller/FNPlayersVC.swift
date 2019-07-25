@@ -17,10 +17,9 @@ class FNPlayersVC: UIViewController {
     // MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerProtocols()
         registerNibs()
         initViewModel()
-        reloadTableView()
+        registerProtocols()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,12 +45,6 @@ extension FNPlayersVC {
     
     func initViewModel() {
         playersVM = FNPlayersVM()
-    }
-    
-    func reloadTableView() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.tableView.reloadData()
-        }
     }
 }
 

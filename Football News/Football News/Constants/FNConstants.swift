@@ -18,12 +18,18 @@ enum FNConstants : String {
     case PLAYER_NIB         =   "FNPlayerCell"
     case GALLERY_NIB        =   "FNGalleryCell"
     
+    // MARK: NewsFeed Detailed View Controllers ID's
+    case NEWS_DETAILS       =   "NewsDetailsVC"
+    case FACT_DETAILS       =   "FactDetailsVC"
+    case VIDEO_DETAILS      =   "VideoDetailsVC"
+    
     // MARK: Segue Identifiers
     case TEAMS_SEGUE        =   "teamsSegue"
     case PLAYERS_SEGUE      =   "playersSegue"
     case GALLERY_SEGUE      =   "gallerySegue"
     
     // MARK: Cell Identifiers
+    case CITY_IDENTIFIER    =   "CityCellIdentifier"
     case FACT_IDENTIFIER    =   "FactCellIdentifier"
     case NEWS_IDENTIFIER    =   "NewsCellIdentifier"
     case TEAM_IDENTIFIER    =   "TeamCellIdentifier"

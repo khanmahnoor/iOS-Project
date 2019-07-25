@@ -17,15 +17,10 @@ class FNGalleryVC: UIViewController {
     // MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionViewItemSize()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
         registerProtocols()
         registerNib()
         initViewModel()
-        reloadCollectionView()
+        setupCollectionViewItemSize()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,12 +67,6 @@ extension FNGalleryVC {
             collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true )
         }
     }
-    
-    func reloadCollectionView() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.collectionView.reloadData()
-        }
-    }
 }
 
 // MARK: Collection View Functions
@@ -87,8 +76,13 @@ extension FNGalleryVC : UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let galleryItem = galleryVM?.itemAt(indexPath) else { return UICollectionViewCell()}
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FNConstants.GALLERY_IDENTIFIER.rawValue, for: indexPath) as! FNGalleryCell
+        guard let galleryItem = galleryVM?.itemAt(indexPath) else {
+            return UICollectionViewCell()
+        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FNConstants.GALLERY_IDENTIFIER.rawValue, for: indexPath) as? FNGalleryCell else  {
+            print("here")
+            return UICollectionViewCell()
+        }
         
         cell.setImage(galleryObject: galleryItem)
         return cell

@@ -19,7 +19,6 @@ class FNTeamsVC: UIViewController {
         super.viewDidLoad()
         registerNibs()
         initViewModel()
-        reloadTableView()
         registerProtocols()
     }
     
@@ -46,12 +45,6 @@ extension FNTeamsVC {
     
     func initViewModel() {
         teamsVM = FNTeamsVM()
-    }
-    
-    func reloadTableView() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.tableView.reloadData()
-        }
     }
 }
 

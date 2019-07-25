@@ -27,6 +27,9 @@
                         <state key="normal" title="Read More">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="readButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0Cz-Pc-NdW"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfR-eG-aGo">
                         <rect key="frame" x="210.5" y="198" width="194.5" height="18.5"/>
@@ -74,6 +77,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="factImage" destination="tt8-SO-yyH" id="pwo-zM-o5P"/>
+                <outlet property="rButton" destination="xCs-C6-RNY" id="4Q7-72-vjJ"/>
                 <outlet property="sButton" destination="dfR-eG-aGo" id="tgz-9a-bLG"/>
                 <outlet property="title" destination="5DX-Zh-Tlc" id="fpD-je-h6i"/>
             </connections>

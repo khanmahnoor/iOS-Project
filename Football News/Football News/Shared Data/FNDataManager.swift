@@ -11,25 +11,64 @@ import Foundation
 class FNDataManager {
     // MARK: Properties
     static let shared = FNDataManager()
-    var model           : [NewsFeedObject]?
-    var feedDataFetched : (()->())?
+    
+    var teamsModel          :   [TeamObject]?
+    var playersModel        :   [PlayerObject]?
+    var galleryModel        :   [GalleryObject]?
+    var feedModel           :   [NewsFeedObject]?
+    var citiesModel         :   [CityObject]?
+    var feedDataFetched     :   (()->())?
     
     // MARK: Initializer
     private init() {
         fetchFeed()
+        getCities()
+        fetchTeamsData()
+        fetchPlayersData()
+        fetchGalleryData()
     }
 }
 
-// MARK: Fetch Feed
-extension FNDataManager : NewsfeedService {
+// MARK: Fetch Feed, Players, Teams, Gallery
+extension FNDataManager : NewsfeedService, PlayerService, TeamService, GalleryService {
     func fetchFeed() {
         fetchNewsfeed { (objects) in
             if let fetchedObjects : [NewsFeedObject] = objects {
-                self.model = fetchedObjects
+                self.feedModel = fetchedObjects
                 self.feedDataFetched?()
             } else {
                 
             }
+        }
+    }
+    
+    func fetchPlayersData() {
+        fetchPlayers { (objects) in
+            if let fetchedObjects : [PlayerObject] = objects {
+                self.playersModel = fetchedObjects
+            }
+        }
+    }
+    
+    func fetchTeamsData() {
+        fetchTeams { (objects) in
+            if let fetchedObjects : [TeamObject] = objects {
+                self.teamsModel = fetchedObjects
+            }
+        }
+    }
+    
+    func fetchGalleryData() {
+        fetchGallery { (objects) in
+            if let fetchedObjects : [GalleryObject] = objects {
+                self.galleryModel = fetchedObjects
+            }
+        }
+    }
+    
+    func getCities() {
+        getCities { (fetchedData) in
+            self.citiesModel = fetchedData
         }
     }
 }

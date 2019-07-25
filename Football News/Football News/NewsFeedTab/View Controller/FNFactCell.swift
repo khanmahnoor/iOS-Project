@@ -14,12 +14,12 @@ class FNFactCell: UITableViewCell {
     var delegate                    :   FNButtonAction?
     @IBOutlet weak var title        :   UILabel!
     @IBOutlet weak var sButton      :   UIButton!
+    @IBOutlet weak var rButton      :   UIButton!
     @IBOutlet weak var factImage    :   UIImageView!
    
     // MARK: Override Functions
     override func awakeFromNib() {
         super.awakeFromNib()
-        registerTag()
     }
 }
 
@@ -27,10 +27,6 @@ class FNFactCell: UITableViewCell {
 extension FNFactCell {
     func setTag(buttonTag : Int) {
         self.buttonTag = buttonTag
-    }
-    
-    func registerTag() {
-        sButton.tag = buttonTag ?? 0
     }
 }
 
@@ -53,6 +49,14 @@ extension FNFactCell : NetworkEngine {
 // MARK: Share Button Function
 extension FNFactCell {
     @IBAction func shareButton(_ sender: UIButton) {
-        delegate?.onClick(sender.tag)
+        if let buttonTag = buttonTag {
+            delegate?.onClickShare(buttonTag)
+        }
+    }
+    
+    @IBAction func readButton(_ sender: UIButton) {
+        if let buttonTag = buttonTag {
+            delegate?.onClickWatch(buttonTag)
+        }
     }
 }

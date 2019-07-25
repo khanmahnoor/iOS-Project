@@ -9,5 +9,6 @@
 import Foundation
 
 protocol FNButtonAction {
-    func onClick(_ tag: Int)
+    func onClickShare(_ tag : Int)
+    func onClickWatch(_ tag : Int)
 }

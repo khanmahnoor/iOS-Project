@@ -11,8 +11,8 @@ import UIKit
 class FNNewsfeedVC: UIViewController {
 
     // MARK: Properties and Outlets
-    var newsfeedVM                  :   FNNewsfeedVM?
     @IBOutlet weak var tableView    :   UITableView!
+    var newsfeedVM                  :   FNNewsfeedVM?
     
     // MARK: Override Functions
     override func viewDidLoad() {
@@ -84,10 +84,31 @@ extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: Share button Function
+// MARK: Share/Watch/Read button Function
 extension FNNewsfeedVC : FNButtonAction {
-    func onClick(_ tag: Int) {
-        let item = newsfeedVM?.itemThroughIndex(tag)
+    func onClickWatch(_ tag: Int) {
+        guard let item = newsfeedVM?.itemThroughIndex(tag) else { return }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        switch item.type {
+        case 0:
+            let vc = storyboard.instantiateViewController(withIdentifier: FNConstants.VIDEO_DETAILS.rawValue) as! FNVideoDetailsVC
+            vc.initViewModel(feedObject: item)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 1:
+            let vc = storyboard.instantiateViewController(withIdentifier: FNConstants.FACT_DETAILS.rawValue) as! FNFactDetailsVC
+            vc.initViewModel(feedObject: item)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            let vc = storyboard.instantiateViewController(withIdentifier: FNConstants.NEWS_DETAILS.rawValue) as! FNNewsDetailsVC
+            vc.initViewModel(feedObject: item)
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            return
+        }
+    }
+    
+    func onClickShare(_ tag: Int) {
+        let item        = newsfeedVM?.itemThroughIndex(tag)
         let itemToShare = [item?.url]
         let activityViewController = UIActivityViewController(activityItems: itemToShare as [Any], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view

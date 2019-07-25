@@ -19,7 +19,7 @@ class FNPlayersVM {
     
     // MARK: Initializer
     init() {
-        getPlayers()
+        self.model = FNDataManager.shared.playersModel
     }
 }
 
@@ -28,19 +28,5 @@ extension FNPlayersVM {
     func itemAt(_ indexPath: IndexPath) -> PlayerObject? {
         guard let _model = model, itemCount > 0 else { return nil }
         return _model[indexPath.row]
-    }
-}
-
-// MARK: Fetching Objects
-extension FNPlayersVM : PlayerService {
-    func getPlayers() {
-        fetchPlayers { (objects) in
-            if let fetchedObjects : [PlayerObject] = objects {
-                self.model = fetchedObjects
-            }
-            else {
-                // add appropriate else case here.
-            }
-        }
     }
 }

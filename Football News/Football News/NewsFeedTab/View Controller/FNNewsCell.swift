@@ -11,15 +11,15 @@ import URLEmbeddedView
 
 class FNNewsCell: UITableViewCell {
     // MARK: Properties and Outlets
-    var buttonTag               : Int?
-    var delegate                : FNButtonAction?
-    @IBOutlet weak var sButton  : UIButton!
-    @IBOutlet weak var urlView  : URLEmbeddedView!
+    var buttonTag               :   Int?
+    var delegate                :   FNButtonAction?
+    @IBOutlet weak var sButton  :   UIButton!
+    @IBOutlet weak var rButton  :   UIButton!
+    @IBOutlet weak var urlView  :   URLEmbeddedView!
    
     // MARK: Override Functions
     override func awakeFromNib() {
         super.awakeFromNib()
-        registerTag()
     }
 }
 
@@ -27,10 +27,6 @@ class FNNewsCell: UITableViewCell {
 extension FNNewsCell {
     func setTag(buttonTag : Int) {
         self.buttonTag = buttonTag
-    }
-    
-    func registerTag() {
-        sButton.tag = buttonTag ?? 0
     }
 }
 
@@ -44,6 +40,14 @@ extension FNNewsCell {
 // MARK: Share Button Function
 extension FNNewsCell {
     @IBAction func shareButton(_ sender : UIButton) {
-        delegate?.onClick(sender.tag)
+        if let buttonTag = buttonTag {
+            delegate?.onClickShare(buttonTag)
+        }
+    }
+    
+    @IBAction func readButton(_ sender : UIButton) {
+        if let buttonTag = buttonTag {
+            delegate?.onClickWatch(buttonTag)
+        }
     }
 }
