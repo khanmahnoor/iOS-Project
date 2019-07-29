@@ -51,8 +51,8 @@ extension FNGalleryVC {
     
     func setupCollectionViewItemSize() {
         if collectionViewFlowLayout == nil {
-            let lineSpacing         :   CGFloat     =   5
-            let interItemSpacing    :   CGFloat     =   5
+            let lineSpacing         :   CGFloat     =   3
+            let interItemSpacing    :   CGFloat     =   3
             let numberOfItemForRow  :   CGFloat     =   2
             
             let width   =   (collectionView.frame.width  - (numberOfItemForRow - 1) * interItemSpacing) / numberOfItemForRow
@@ -64,7 +64,7 @@ extension FNGalleryVC {
             collectionViewFlowLayout.sectionInset               =   UIEdgeInsets.zero
             collectionViewFlowLayout.minimumInteritemSpacing    =   interItemSpacing
             collectionViewFlowLayout.itemSize                   =   CGSize(width: width, height: height)
-            
+//
             collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true )
         }
     }

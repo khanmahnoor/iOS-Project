@@ -36,7 +36,7 @@ struct FNConstants {
     let PLAYER_IDENTIFIER  =   "PlayerCellIdentifier"
     let GALLERY_IDENTIFIER =   "GalleryCellIdentifier"
     
-    // MARK: API Url
+    // MARK: API URL
     let apiUrl                =    URL(string: "https://www.metaweather.com/api/location/search/?query=san")
 }
 

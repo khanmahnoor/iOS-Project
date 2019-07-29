@@ -14,43 +14,84 @@ protocol NetworkEngine {}
 
 extension NetworkEngine {
     // MARK: data fetching functions
-//     func addFirebaseObserver<T : Codable>(node : String, observerType : DataEventType, decodedData : @escaping (_  objects : [T]?) -> ()) {
-//        let ref : DatabaseReference = Database.database().reference()
-//        ref.child(node).observe(observerType, with: { (dataSnapshot) in
-//            if dataSnapshot.value != nil {
-//                if let jsonData = try? JSONSerialization.data(withJSONObject: dataSnapshot.value as Any) {
-//                    print(jsonData)
-//                    do {
-//                        let objects : [T] = try JSONDecoder().decode([T].self, from: (jsonData))
-//                        decodedData(objects)
-//                    } catch {
-//                        print(error)
-//                    }
-//                }
-//            }
-//        }, withCancel: {Error in
-//            print (Error)
-//            // pass through to appropriate class and show user prompt
-//        })
-//    }
-    
     func addFirebaseObserver<T : Codable>(node : String, observerType : DataEventType, decodedData : @escaping (_  objects : [T]?) -> ()) {
         let ref : DatabaseReference = Database.database().reference()
         var objects : [T] = []
         ref.child(node).observe(observerType, with: { (dataSnapshot) in
             if dataSnapshot.value != nil {
-                if let jsonData = try? JSONSerialization.data(withJSONObject: dataSnapshot.value as Any) {
-                    print(jsonData)
-                    do {
-                        let object  : T = try JSONDecoder().decode(T.self, from: (jsonData))
-                        objects.append(object)
-                        
-                    } catch {
-                        print(error)
+                for snap in dataSnapshot.children.allObjects {
+                    let value = snap as! DataSnapshot
+                    if let jsonData = try? JSONSerialization.data(withJSONObject: value.value as Any){
+                        print(jsonData)
+                        do {
+                            let object : T = try JSONDecoder().decode(T.self, from: jsonData)
+                            objects.append(object)
+                        } catch {
+                            print(error)
+                        }
                     }
                 }
+                decodedData(objects)
             }
             decodedData(objects)
+        }, withCancel: {Error in
+            print (Error)
+            // pass through to appropriate class and show user prompt
+        })
+    }
+    
+    func getInitialObjects<T : Codable>(noOfobjects : UInt, node : String, observerType : DataEventType, decodedData : @escaping (_  objects : [T]?) -> ()) {
+        let ref : DatabaseReference = Database.database().reference()
+        var objects : [T] = []
+        ref.child(node)
+            .queryOrdered(byChild: "key")
+            .queryLimited(toFirst: noOfobjects)
+            .observe(observerType, with: { (dataSnapshot) in
+                if dataSnapshot.value != nil {
+                    for snap in dataSnapshot.children.allObjects {
+                        let value = snap as! DataSnapshot
+                        if let jsonData = try? JSONSerialization.data(withJSONObject: value.value as Any){
+                            print(jsonData)
+                            do {
+                                let object : T = try JSONDecoder().decode(T.self, from: jsonData)
+                                objects.append(object)
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }
+                    decodedData(objects)
+                }
+            }, withCancel: {Error in
+                print (Error)
+                // pass through to appropriate class and show user prompt
+            })
+    }
+
+    func paginatedFirebaseObserver<T : Codable>(startValue : String, endValue : String, node : String, observerType : DataEventType, decodedData : @escaping (_  objects : [T]?) -> ()) {
+        let ref : DatabaseReference = Database.database().reference()
+        var objects : [T] = []
+        ref.child(node)
+        .queryOrdered(byChild: "key")
+        .queryStarting(atValue: startValue)
+        .queryEnding(atValue: endValue)
+            .queryLimited(toFirst: 10)
+            .observeSingleEvent(of: observerType, with: { (dataSnapshot) in
+            if dataSnapshot.value != nil {
+                for snap in dataSnapshot.children.allObjects {
+                     let value = snap as! DataSnapshot
+                    if let jsonData = try? JSONSerialization.data(withJSONObject: value.value as Any){
+                        print(jsonData)
+                        do {
+                            let object : T = try JSONDecoder().decode(T.self, from: jsonData)
+                            objects.append(object)
+                        } catch {
+                            print(error)
+                        }
+                    }
+                }
+                decodedData(objects)
+            }
         }, withCancel: {Error in
             print (Error)
             // pass through to appropriate class and show user prompt

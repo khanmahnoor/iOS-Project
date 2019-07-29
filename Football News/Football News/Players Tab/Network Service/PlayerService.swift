@@ -17,7 +17,7 @@ extension PlayerService {
     
     func fetchPlayers(onSuccess : @escaping (fetchedData)) {
         let node = "Players"
-        let observerType = DataEventType.childAdded
+        let observerType = DataEventType.value
         addFirebaseObserver(node: node, observerType: observerType, decodedData: onSuccess)
     }
 }

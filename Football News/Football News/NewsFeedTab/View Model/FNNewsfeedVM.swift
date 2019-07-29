@@ -36,12 +36,11 @@ extension FNNewsfeedVM {
     }
 }
 
-//extension FNNewsfeedVM : NewsfeedService {
-//    func fetchFeed() {
-//        fetchNewsfeed { (objects) in
-//            if let fetchedObjects : [NewsFeedObject] = objects {
-//                self.model = fetchedObjects
-//            }
-//        }
-//    }
-//}
+extension FNNewsfeedVM : NewsfeedService {
+    typealias fetchedData = (_  newsfeedObjects : [NewsFeedObject]?) -> ()
+    func getMoreItems(onSuccess : @escaping (fetchedData)) {
+        let start = FNDataManager.initialObjs + 1
+        FNDataManager.initialObjs = start + 3
+        fetchFeedForPagination(start: FNDataManager.shared.convertToString(number: start), end: FNDataManager.shared.convertToString(number: start + 2), onSuccess: onSuccess)
+    }
+}

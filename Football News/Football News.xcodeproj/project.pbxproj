@@ -58,6 +58,7 @@
 		4AD22D6522E1A870009299C0 /* FNTeamsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD22D6422E1A870009299C0 /* FNTeamsVC.swift */; };
 		4AD22D6722E1A894009299C0 /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD22D6622E1A894009299C0 /* TeamService.swift */; };
 		4AD22D6922E1A8CD009299C0 /* FNTeamsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD22D6822E1A8CD009299C0 /* FNTeamsVM.swift */; };
+		4AD2930122EEC8A80047782E /* FNAboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD2930022EEC8A80047782E /* FNAboutVC.swift */; };
 		4AD64E6E22E58FC1007CB43A /* FNTeamDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD64E6D22E58FC1007CB43A /* FNTeamDetailsVC.swift */; };
 		4AD64E7022E5C863007CB43A /* FNPlayerDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD64E6F22E5C863007CB43A /* FNPlayerDetailsVC.swift */; };
 		4ADA759622DC5BF2001E76AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA759522DC5BF2001E76AF /* AppDelegate.swift */; };
@@ -119,6 +120,7 @@
 		4AD22D6422E1A870009299C0 /* FNTeamsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNTeamsVC.swift; sourceTree = "<group>"; };
 		4AD22D6622E1A894009299C0 /* TeamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
 		4AD22D6822E1A8CD009299C0 /* FNTeamsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNTeamsVM.swift; sourceTree = "<group>"; };
+		4AD2930022EEC8A80047782E /* FNAboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNAboutVC.swift; sourceTree = "<group>"; };
 		4AD64E6D22E58FC1007CB43A /* FNTeamDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNTeamDetailsVC.swift; sourceTree = "<group>"; };
 		4AD64E6F22E5C863007CB43A /* FNPlayerDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNPlayerDetailsVC.swift; sourceTree = "<group>"; };
 		4ADA759222DC5BF2001E76AF /* Football News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -404,6 +406,22 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
+		4AD292FE22EEC8620047782E /* About Tab */ = {
+			isa = PBXGroup;
+			children = (
+				4AD292FF22EEC88B0047782E /* View Controller */,
+			);
+			path = "About Tab";
+			sourceTree = "<group>";
+		};
+		4AD292FF22EEC88B0047782E /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4AD2930022EEC8A80047782E /* FNAboutVC.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 		4ADA758922DC5BF2001E76AF = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +454,7 @@
 				4AD22D5D22E1A3EC009299C0 /* Teams Tab */,
 				4A20AE6222E0A68600FD6BE3 /* Players Tab */,
 				4A013C3E22E87F4C006A4736 /* Cities Tab */,
+				4AD292FE22EEC8620047782E /* About Tab */,
 				4ADA75A822DC8026001E76AF /* View */,
 				4ADA759522DC5BF2001E76AF /* AppDelegate.swift */,
 				4ADA75AB22DC835D001E76AF /* GoogleService-Info.plist */,
@@ -669,6 +688,7 @@
 				4A8513E522E97BE00098058C /* FNConstants.swift in Sources */,
 				4A4A799122DF3DF200747126 /* FNFactCell.swift in Sources */,
 				4A20AE5722E0528100FD6BE3 /* FNSplash.swift in Sources */,
+				4AD2930122EEC8A80047782E /* FNAboutVC.swift in Sources */,
 				4AD64E7022E5C863007CB43A /* FNPlayerDetailsVC.swift in Sources */,
 				4A8513E822E9966C0098058C /* CitiesService.swift in Sources */,
 				4AA753FA22E7044400A696A6 /* FNImageDetailsVC.swift in Sources */,
@@ -843,6 +863,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P6FSMC3RK7;
 				INFOPLIST_FILE = "Football News/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -861,6 +882,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P6FSMC3RK7;
 				INFOPLIST_FILE = "Football News/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

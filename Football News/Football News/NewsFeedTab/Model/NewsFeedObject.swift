@@ -10,10 +10,11 @@ import Foundation
 
 struct NewsFeedObject : Codable {
     // MARK: Properties
-    var type        : Int
-    var url         : String
-    var title       : String
-    var description : String
+    var type        :   Int
+    var url         :   String
+    var key         :   String
+    var title       :   String
+    var description :   String
 }
 
 // MARK: Functions

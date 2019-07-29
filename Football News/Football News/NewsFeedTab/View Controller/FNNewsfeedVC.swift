@@ -53,7 +53,19 @@ extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let modelCount = newsfeedVM?.itemCount {
+             if indexPath.row == modelCount - 1 {
+                insertNewData(indexPath: indexPath)
+            }
+        }
         let feedObject = newsfeedVM?.itemAt(indexPath)
+        let cell = getTableCell(feedObject: feedObject, indexPath: indexPath)
+        return cell
+    }
+}
+
+extension FNNewsfeedVC {
+    func getTableCell(feedObject : NewsFeedObject?, indexPath: IndexPath) -> UITableViewCell {
         switch feedObject?.type {
         case 0:
             guard let cell  =   tableView.dequeueReusableCell(withIdentifier: constants.VIDEO_IDENTIFIER) as? FNVideoCell else { return UITableViewCell() }
@@ -83,7 +95,25 @@ extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
+    
+    func insertNewData(indexPath : IndexPath) {
+        newsfeedVM?.getMoreItems { objects in
+            if(objects?.count != nil) {
+                if let fetchedObjects : [NewsFeedObject] = objects {
+                    self.newsfeedVM?.model?.append(contentsOf: fetchedObjects)
+                    self.tableView.beginUpdates()
+                    var currentIndexPath : IndexPath = IndexPath(row: indexPath.row + 1 , section: 0)
+                    for _ in fetchedObjects {
+                        self.tableView.insertRows(at: [currentIndexPath], with: .none)
+                        currentIndexPath = IndexPath(row: currentIndexPath.row + 1 , section: 0)
+                    }
+                    self.tableView.endUpdates()
+                }
+            }
+        }
+    }
 }
+
 
 // MARK: Share/Watch/Read button Function
 extension FNNewsfeedVC : FNButtonAction {

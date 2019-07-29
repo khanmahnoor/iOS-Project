@@ -15,9 +15,15 @@ protocol NewsfeedService : NetworkEngine {}
 extension NewsfeedService {
     typealias fetchedData = (_  newsfeedObjects : [NewsFeedObject]?) -> ()
     
-    func fetchNewsfeed(onSuccess : @escaping (fetchedData)) {
+    func fetchInitialFeed(noOfObjects : UInt, onSuccess : @escaping (fetchedData)) {
         let node = "Newsfeed"
-        let observerType = DataEventType.childAdded
-        addFirebaseObserver(node: node, observerType: observerType, decodedData: onSuccess)
+        let observerType = DataEventType.value
+        getInitialObjects(noOfobjects: noOfObjects, node: node, observerType: observerType, decodedData: onSuccess)
+    }
+    
+    func fetchFeedForPagination(start : String, end : String, onSuccess : @escaping (fetchedData)) {
+        let node = "Newsfeed"
+        let observerType = DataEventType.value
+        paginatedFirebaseObserver(startValue: start, endValue: end, node: node, observerType: observerType, decodedData: onSuccess)
     }
 }

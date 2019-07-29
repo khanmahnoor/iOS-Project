@@ -20,6 +20,7 @@ class FNVideoCell: UITableViewCell {
     // MARK: Override Functions
     override func awakeFromNib() {
         super.awakeFromNib()
+        video.layer.cornerRadius = 10
     }
 }
 

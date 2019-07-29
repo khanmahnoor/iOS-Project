@@ -12,15 +12,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FactCellIdentifier" rowHeight="225" id="KGk-i7-Jjw" customClass="FNFactCell" customModule="Football_News" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="413" height="225"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FactCellIdentifier" rowHeight="320" id="KGk-i7-Jjw" customClass="FNFactCell" customModule="Football_News" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="320"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="413" height="224.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="334" height="319.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCs-C6-RNY">
-                        <rect key="frame" x="8" y="198" width="194.5" height="18.5"/>
+                        <rect key="frame" x="8" y="293" width="155" height="18.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18.5" id="OEK-2U-bOP"/>
                         </constraints>
@@ -32,7 +32,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfR-eG-aGo">
-                        <rect key="frame" x="210.5" y="198" width="194.5" height="18.5"/>
+                        <rect key="frame" x="171" y="293" width="155" height="18.5"/>
                         <state key="normal" title="Share">
                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
@@ -41,35 +41,35 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DX-Zh-Tlc">
-                        <rect key="frame" x="8" y="8" width="397" height="21"/>
+                        <rect key="frame" x="8" y="8" width="318" height="18.5"/>
                         <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tt8-SO-yyH">
-                        <rect key="frame" x="95.5" y="37" width="222" height="153"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tt8-SO-yyH">
+                        <rect key="frame" x="17" y="34.5" width="300" height="250.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="153" id="Go5-ZQ-44o"/>
-                            <constraint firstAttribute="width" constant="222" id="Gow-eH-bhp"/>
+                            <constraint firstAttribute="width" constant="300" id="IEE-bx-BgV"/>
+                            <constraint firstAttribute="height" constant="250.5" id="zKN-gd-TjS"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="tt8-SO-yyH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="74U-ve-LHT"/>
                     <constraint firstItem="xCs-C6-RNY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="8CM-5z-Vje"/>
                     <constraint firstItem="5DX-Zh-Tlc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="AFe-L2-2Jk"/>
-                    <constraint firstItem="dfR-eG-aGo" firstAttribute="top" secondItem="tt8-SO-yyH" secondAttribute="bottom" constant="8" id="FjR-p1-DBw"/>
                     <constraint firstAttribute="trailing" secondItem="dfR-eG-aGo" secondAttribute="trailing" constant="8" id="LoA-1E-zbN"/>
                     <constraint firstAttribute="bottom" secondItem="dfR-eG-aGo" secondAttribute="bottom" constant="8" id="NdJ-C7-dOf"/>
                     <constraint firstItem="dfR-eG-aGo" firstAttribute="height" secondItem="xCs-C6-RNY" secondAttribute="height" id="OGc-Eb-pb3"/>
                     <constraint firstAttribute="trailing" secondItem="5DX-Zh-Tlc" secondAttribute="trailing" constant="8" id="Ojy-je-lky"/>
                     <constraint firstAttribute="bottom" secondItem="xCs-C6-RNY" secondAttribute="bottom" constant="8" id="PwQ-Oj-YJF"/>
-                    <constraint firstItem="tt8-SO-yyH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="QBZ-vD-6fx"/>
-                    <constraint firstItem="tt8-SO-yyH" firstAttribute="top" secondItem="5DX-Zh-Tlc" secondAttribute="bottom" constant="8" id="UBO-98-jYd"/>
+                    <constraint firstItem="tt8-SO-yyH" firstAttribute="top" secondItem="5DX-Zh-Tlc" secondAttribute="bottom" constant="8" id="T7f-Bg-z0A"/>
                     <constraint firstItem="dfR-eG-aGo" firstAttribute="width" secondItem="xCs-C6-RNY" secondAttribute="width" id="Uwr-cH-hfA"/>
+                    <constraint firstItem="dfR-eG-aGo" firstAttribute="top" secondItem="tt8-SO-yyH" secondAttribute="bottom" constant="8" id="Xh7-VF-aeY"/>
+                    <constraint firstItem="tt8-SO-yyH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ZdT-6f-AnB"/>
                     <constraint firstItem="dfR-eG-aGo" firstAttribute="leading" secondItem="xCs-C6-RNY" secondAttribute="trailing" constant="8" id="diw-5l-rsc"/>
                     <constraint firstItem="5DX-Zh-Tlc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="e4A-BJ-qVk"/>
                     <constraint firstItem="dfR-eG-aGo" firstAttribute="leading" secondItem="xCs-C6-RNY" secondAttribute="trailing" constant="8" id="jAa-ss-8bu"/>
-                    <constraint firstItem="tt8-SO-yyH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="kEU-pQ-wPl"/>
-                    <constraint firstItem="xCs-C6-RNY" firstAttribute="top" secondItem="tt8-SO-yyH" secondAttribute="bottom" constant="8" id="unt-Ui-3Vc"/>
+                    <constraint firstItem="xCs-C6-RNY" firstAttribute="top" secondItem="tt8-SO-yyH" secondAttribute="bottom" constant="8" id="sy1-Uh-4Ms"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,7 +80,7 @@
                 <outlet property="sButton" destination="dfR-eG-aGo" id="tgz-9a-bLG"/>
                 <outlet property="title" destination="5DX-Zh-Tlc" id="fpD-je-h6i"/>
             </connections>
-            <point key="canvasLocation" x="52.898550724637687" y="26.450892857142858"/>
+            <point key="canvasLocation" x="127.53623188405798" y="57.589285714285708"/>
         </tableViewCell>
     </objects>
 </document>

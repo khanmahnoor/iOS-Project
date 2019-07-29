@@ -37,10 +37,12 @@ extension FNFactCell : NetworkEngine {
         if let url : URL = URL(string: fact.url) {
             factImage.layer.cornerRadius = 10
             getImage(imageUrl: url) { (UIImage) in
+                self.factImage.contentMode = .scaleAspectFill
                 self.factImage.image = UIImage
             }
         }
         else {
+            factImage.contentMode = .scaleAspectFit
             factImage.image = UIImage(named: "football")
         }
     }

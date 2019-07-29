@@ -17,7 +17,7 @@ extension TeamService {
     
     func fetchTeams(onSuccess : @escaping (fetchedData)) {
         let node = "Teams"
-        let observerType = DataEventType.childAdded
+        let observerType = DataEventType.value
         addFirebaseObserver(node: node, observerType: observerType, decodedData: onSuccess)
     }
 }

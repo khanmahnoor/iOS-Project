@@ -11,6 +11,7 @@ import Foundation
 class FNDataManager {
     // MARK: Properties
     static let shared = FNDataManager()
+    static var initialObjs : UInt = 10
     
     var teamsModel          :   [TeamObject]?
     var playersModel        :   [PlayerObject]?
@@ -33,7 +34,7 @@ class FNDataManager {
 // MARK: Fetch Feed, Players, Teams, Gallery
 extension FNDataManager : NewsfeedService, PlayerService, TeamService, GalleryService, CitiesService {
     func fetchFeed() {
-        fetchNewsfeed { (objects) in
+        fetchInitialFeed(noOfObjects: FNDataManager.initialObjs) { (objects) in
             if let fetchedObjects : [NewsFeedObject] = objects {
                 self.feedModel = fetchedObjects
                 self.feedDataFetched?()
@@ -72,6 +73,17 @@ extension FNDataManager : NewsfeedService, PlayerService, TeamService, GallerySe
             if let fetchedObjects : [CityObject] = objects {
                 self.citiesModel = fetchedObjects
             }
+        }
+    }
+}
+
+extension FNDataManager {
+    func convertToString(number : UInt) -> String {
+        if number > 0 && number < 10 {
+            return "0" + String(number)
+        }
+        else {
+            return String(number)
         }
     }
 }
