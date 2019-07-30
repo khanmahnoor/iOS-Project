@@ -12,22 +12,31 @@ class FNVideoDetailsVM {
     // MARK: Properties
     var model   :   NewsFeedObject?
     
-    init(feedObject : NewsFeedObject) {
+    // MARK: Initializer
+    init(feedObject: NewsFeedObject) {
         model = feedObject
     }
 }
 
-// MARK: Functions
 extension FNVideoDetailsVM {
+    /// function to get Video Title
+    ///
+    /// - Returns: video title
     func getVideoTitle() -> String {
         return model?.title ?? ""
     }
     
+    /// Function to get video description
+    ///
+    /// - Returns: video description
     func getVideoDescription() -> String {
         return model?.description ?? ""
     }
     
+    /// Function to get videoID
+    ///
+    /// - Returns: videoID
     func getVideoId() -> String {
-        return model?.getVideoID() ?? ""
+        return model?.getVideoID() ?? "rdjnkb4ONWk"
     }
 }

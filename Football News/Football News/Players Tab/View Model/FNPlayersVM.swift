@@ -23,8 +23,11 @@ class FNPlayersVM {
     }
 }
 
-// MARK: Accessing Model Objects
 extension FNPlayersVM {
+    /// Function to get player object at a specific index
+    ///
+    /// - Parameter indexPath: indexPath
+    /// - Returns: player Object at the given index path
     func itemAt(_ indexPath: IndexPath) -> PlayerObject? {
         guard let _model = model, itemCount > 0 else { return nil }
         return _model[indexPath.row]

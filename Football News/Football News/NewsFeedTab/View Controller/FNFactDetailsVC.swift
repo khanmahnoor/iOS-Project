@@ -11,8 +11,8 @@ import UIKit
 class FNFactDetailsVC: UIViewController {
     // MARK: Properties and Outlets
     @IBOutlet weak var factTitle        :   UILabel!
-    @IBOutlet weak var factImage        :   UIImageView!
     @IBOutlet weak var factDescription  :   UILabel!
+    @IBOutlet weak var factImage        :   UIImageView!
     var factDetailsVM                   :   FNFactDetailsVM?
     
     override func viewDidLoad() {
@@ -22,15 +22,21 @@ class FNFactDetailsVC: UIViewController {
 }
 
 extension FNFactDetailsVC {
-    func initViewModel(feedObject : NewsFeedObject) {
-        factDetailsVM = FNFactDetailsVM(feedObject : feedObject)
+    /// Function to initialize View model
+    ///
+    /// - Parameter feedObject: newsfeed object for viewModel's initialization
+    func initViewModel(feedObject: NewsFeedObject) {
+        factDetailsVM = FNFactDetailsVM(feedObject: feedObject)
     }
     
+    /// Function to set fact details
     func setFactDetails() {
         factTitle.text          =   factDetailsVM?.getFactTitle()
         factDescription.text    =   factDetailsVM?.getFactDescription()
-        factDetailsVM?.getFactImage(onSuccess: { (UIImage) in
-            self.factImage.image = UIImage
+        factDetailsVM?.getFactImage(onSuccess: { image in
+            self.factImage.image = image
+        }, onFailure: { message in
+            print(message)
         })
     }
 }

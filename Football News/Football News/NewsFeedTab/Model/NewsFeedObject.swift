@@ -19,12 +19,16 @@ struct NewsFeedObject : Codable {
 
 // MARK: Functions
 extension NewsFeedObject {
-    func getVideoID () -> String {
+    /// Function to return video ID from the URL
+    ///
+    /// - Returns: video ID
+    func getVideoID() -> String {
         if let index    =   url.lastIndex(of: "/") {
             let range   =   url.index(after: index)
             let ID      =   String(url[range...])
             return ID
+        } else {
+            return "rdjnkb4ONWk"
         }
-        return "rdjnkb4ONWk"
     }
 }

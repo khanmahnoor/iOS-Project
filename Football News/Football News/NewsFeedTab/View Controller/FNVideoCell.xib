@@ -19,12 +19,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="413" height="291.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2HS-TY-mZ8" customClass="YTPlayerView">
-                        <rect key="frame" x="8" y="8" width="400" height="250"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="250" id="eTl-Hv-XUi"/>
-                        </constraints>
-                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DG-aP-ych">
                         <rect key="frame" x="210.5" y="266" width="194.5" height="17.5"/>
                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -45,20 +39,27 @@
                             <action selector="watchButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LOp-61-o5Y"/>
                         </connections>
                     </button>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2HS-TY-mZ8" customClass="YTPlayerView">
+                        <rect key="frame" x="8" y="8" width="397" height="250"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="Zda-4z-4Mv"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="3DG-aP-ych" firstAttribute="top" secondItem="2HS-TY-mZ8" secondAttribute="bottom" constant="8" id="3fe-vp-f4D"/>
                     <constraint firstItem="3DG-aP-ych" firstAttribute="width" secondItem="foQ-ac-f60" secondAttribute="width" id="C0M-xb-scV"/>
+                    <constraint firstItem="foQ-ac-f60" firstAttribute="top" secondItem="2HS-TY-mZ8" secondAttribute="bottom" constant="8" id="Cm0-ab-vTU"/>
                     <constraint firstItem="3DG-aP-ych" firstAttribute="leading" secondItem="foQ-ac-f60" secondAttribute="trailing" constant="8" id="EOa-rH-Cyp"/>
-                    <constraint firstItem="foQ-ac-f60" firstAttribute="top" secondItem="2HS-TY-mZ8" secondAttribute="bottom" constant="8" id="Hbo-6K-rE1"/>
-                    <constraint firstItem="2HS-TY-mZ8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="UG5-Zw-rPp"/>
+                    <constraint firstItem="2HS-TY-mZ8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="K9Y-Qg-U7e"/>
+                    <constraint firstAttribute="trailing" secondItem="2HS-TY-mZ8" secondAttribute="trailing" constant="8" id="Rp9-uC-YD4"/>
                     <constraint firstItem="foQ-ac-f60" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Ylb-qW-ncy"/>
                     <constraint firstItem="3DG-aP-ych" firstAttribute="height" secondItem="foQ-ac-f60" secondAttribute="height" id="aap-x6-enM"/>
-                    <constraint firstAttribute="trailing" secondItem="2HS-TY-mZ8" secondAttribute="trailing" constant="5" id="bLj-Q4-scP"/>
                     <constraint firstAttribute="bottom" secondItem="foQ-ac-f60" secondAttribute="bottom" constant="8" id="e49-cb-eJp"/>
+                    <constraint firstItem="3DG-aP-ych" firstAttribute="top" secondItem="2HS-TY-mZ8" secondAttribute="bottom" constant="8" id="eLp-JE-hVo"/>
                     <constraint firstAttribute="trailing" secondItem="3DG-aP-ych" secondAttribute="trailing" constant="8" id="fwe-j3-RTm"/>
-                    <constraint firstItem="2HS-TY-mZ8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="hQn-6P-U43"/>
+                    <constraint firstItem="2HS-TY-mZ8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="sHx-Tg-E3O"/>
                     <constraint firstAttribute="bottom" secondItem="3DG-aP-ych" secondAttribute="bottom" constant="8" id="vIo-zc-1Nn"/>
                 </constraints>
             </tableViewCellContentView>

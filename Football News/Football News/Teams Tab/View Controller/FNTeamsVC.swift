@@ -34,23 +34,26 @@ class FNTeamsVC: UIViewController {
 
 // MARK: Registration Functions Extension
 extension FNTeamsVC {
+    /// Function to set delegate and datasource for tableview
     func registerProtocols() {
         tableView.delegate      =   self
         tableView.dataSource    =   self
     }
     
+    /// Function to register nib for table view
     func registerNibs() {
         let videoCellNib = UINib(nibName: constants.TEAM_NIB , bundle: nil)
         tableView.register(videoCellNib, forCellReuseIdentifier: constants.TEAM_IDENTIFIER)
     }
     
+    /// Function to initialize view model
     func initViewModel() {
         teamsVM = FNTeamsVM()
     }
 }
 
 // MARK: Table View functions
-extension FNTeamsVC : UITableViewDataSource, UITableViewDelegate {
+extension FNTeamsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teamsVM?.itemCount ?? 0
     }

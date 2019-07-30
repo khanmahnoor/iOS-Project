@@ -14,35 +14,45 @@ class FNTeamDetailsVM {
     var model : TeamObject?
     
     // MARK: Initializer
-    init (team : TeamObject) {
+    init(team: TeamObject) {
         self.model = team
     }
 }
 
-// MARK: Getters
 extension FNTeamDetailsVM {
+    /// get Team name
+    ///
+    /// - Returns: team name
     func getTeamName() -> String {
         guard let name = model?.name else { return "" }
         return name
     }
     
+    /// get team country
+    ///
+    /// - Returns: team country
     func getTeamCountry() -> String {
         guard let country = model?.country else { return "" }
         return country
     }
     
+    /// get team description
+    ///
+    /// - Returns: team description
     func getTeamDescription() -> String {
         guard let description = model?.description else { return "" }
         return description
     }
 }
 
-// MARK: Image Download
 extension FNTeamDetailsVM : NetworkEngine {
-    typealias fetchedFlag = (_ flag : UIImage?)->()
-    func getTeamFlag(onSuccess : @escaping (fetchedFlag)) {
-        if let url : URL = URL(string: model?.flagUrl ?? "") {
-            getImage(imageUrl: url, image: onSuccess)
-        }
+    typealias failure = (_ message: String) -> ()
+    typealias fetchedFlag = (_ flag: UIImage?) -> ()
+    /// Download team flag image
+    ///
+    /// - Parameter onSuccess: completion handler for downloaded image
+    func getTeamFlag(onSuccess: @escaping fetchedFlag, onFailure: @escaping failure) {
+        guard let url : URL = URL(string: model?.flagUrl ?? "") else { return }
+        getImage(imageUrl: url, onSuccess: onSuccess, onFailure: onFailure)
     }
 }

@@ -23,8 +23,11 @@ class FNTeamsVM {
     }
 }
 
-// MARK: Accessing Model Objects
 extension FNTeamsVM {
+    /// Function to get team object at a specific index
+    ///
+    /// - Parameter indexPath: indexPath
+    /// - Returns: team Object at the given index path
     func itemAt(_ indexPath: IndexPath) -> TeamObject? {
         guard let _model = model, itemCount > 0 else { return nil }
         return _model[indexPath.row]

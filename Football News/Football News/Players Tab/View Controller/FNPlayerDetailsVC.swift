@@ -23,18 +23,23 @@ class FNPlayerDetailsVC: UIViewController {
     }
 }
 
-// MARK: View Model Init and Setting Outlets
 extension FNPlayerDetailsVC {
-    func initViewModel(player : PlayerObject) {
+    /// Function to initialize view model
+    ///
+    /// - Parameter player: player object to initialize
+    func initViewModel(player: PlayerObject) {
         self.playerDetailsVM = FNPlayerDetailsVM(player: player)
     }
     
+    /// Function to set player details
     func setPlayerDetails() {
         playerName.text = playerDetailsVM?.getPlayerName()
         playerClub.text = playerDetailsVM?.getPlayerClub()
         playerDescription.text = playerDetailsVM?.getPlayerDescription()
-        playerDetailsVM?.getPlayerImage(onSuccess: { (UIImage) in
-            self.playerImage.image = UIImage
+        playerDetailsVM?.getPlayerImage(onSuccess: { image in
+            self.playerImage.image = image
+        }, onFailure: { message in
+            print(message)
         })
     }
 }

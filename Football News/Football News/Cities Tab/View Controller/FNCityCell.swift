@@ -17,10 +17,13 @@ class FNCityCell: UITableViewCell {
 }
 
 extension FNCityCell {
-    func setCell(city : CityObject) {
-        title.text          = city.title
-        woeid.text          = String(city.woeid)
-        lattLang.text       = city.latt_long
-        locationType.text   = city.location_type
+    /// Function to set city in table view cell
+    ///
+    /// - Parameter city: city object to set
+    func setCell(city: CityObject) {
+        title.text          =   city.title
+        woeid.text          =   String(city.woeid)
+        lattLang.text       =   city.latt_long
+        locationType.text   =   city.location_type
     }
 }

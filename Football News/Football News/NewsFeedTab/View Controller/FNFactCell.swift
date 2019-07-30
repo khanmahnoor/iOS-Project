@@ -11,54 +11,57 @@ import UIKit
 class FNFactCell: UITableViewCell {
     // MARK: Properties and Outlets
     var buttonTag                   :   Int?
-    var delegate                    :   FNButtonAction?
     @IBOutlet weak var title        :   UILabel!
     @IBOutlet weak var sButton      :   UIButton!
     @IBOutlet weak var rButton      :   UIButton!
     @IBOutlet weak var factImage    :   UIImageView!
-   
-    // MARK: Override Functions
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    var delegate                    :   FNButtonAction?
 }
 
-// MARK: Regustration Functions
 extension FNFactCell {
-    func setTag(buttonTag : Int) {
+    /// Function to set the clicked row number in the table view
+    ///
+    /// - Parameter buttonTag: row number clicked
+    func setTag(buttonTag: Int) {
         self.buttonTag = buttonTag
     }
 }
 
-// MARK: Load Fact
-extension FNFactCell : NetworkEngine {
-    func loadFact(fact : NewsFeedObject) {
+extension FNFactCell: NetworkEngine {
+    /// Function to load the fact in the table view cell
+    ///
+    /// - Parameter fact: fact Object to load
+    func loadFact(fact: NewsFeedObject) {
         title.text = fact.title
         if let url : URL = URL(string: fact.url) {
             factImage.layer.cornerRadius = 10
-            getImage(imageUrl: url) { (UIImage) in
+            getImage(imageUrl: url, onSuccess: { image in
                 self.factImage.contentMode = .scaleAspectFill
-                self.factImage.image = UIImage
-            }
-        }
-        else {
-            factImage.contentMode = .scaleAspectFit
-            factImage.image = UIImage(named: "football")
+                self.factImage.image = image
+            }, onFailure: { message in
+                print(message)
+            })
+        } else {
+            factImage.contentMode   =   .scaleAspectFit
+            factImage.image         =   UIImage(named: "football")
         }
     }
 }
 
-// MARK: Share Button Function
 extension FNFactCell {
+    /// Function for share button on newsfeed video cell
+    ///
+    /// - Parameter sender: row number clicked
     @IBAction func shareButton(_ sender: UIButton) {
-        if let buttonTag = buttonTag {
-            delegate?.onClickShare(buttonTag)
-        }
+        guard let buttonTag = buttonTag else { return }
+        delegate?.onClickShare(buttonTag)
     }
     
+    /// Function for read button on newsfeed video cell
+    ///
+    /// - Parameter sender: row number clicked
     @IBAction func readButton(_ sender: UIButton) {
-        if let buttonTag = buttonTag {
-            delegate?.onClickWatch(buttonTag)
-        }
+        guard let buttonTag = buttonTag else { return }
+        delegate?.onClickWatch(buttonTag)
     }
 }

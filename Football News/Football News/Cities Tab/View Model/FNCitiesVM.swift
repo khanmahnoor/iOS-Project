@@ -9,6 +9,7 @@
 import Foundation
 
 class FNCitiesVM {
+    // MARK: Properties
     var model       :   [CityObject]?
     var itemCount   :   Int {
         get {
@@ -16,19 +17,19 @@ class FNCitiesVM {
         }
     }
     
+    // MARK: Initializer
     init() {
         self.model = FNDataManager.shared.citiesModel
     }
 }
 
 extension FNCitiesVM {
+    // Function to return an item at a specific indexPath
+    ///
+    /// - Parameter indexpath: indexPath
+    /// - Returns: City object
     func itemAt(_ indexpath: IndexPath) -> CityObject? {
         guard let _model = model, itemCount > 0 else { return nil }
         return _model[indexpath.row]
-    }
-    
-    func itemThroughIndex(_ index : Int) -> CityObject? {
-        guard let _model = model, itemCount > 0 else { return nil }
-        return _model[index]
     }
 }

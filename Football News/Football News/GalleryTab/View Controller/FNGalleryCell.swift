@@ -13,13 +13,16 @@ class FNGalleryCell: UICollectionViewCell {
     @IBOutlet weak var galleryImage: UIImageView!
 }
 
-// MARK: Image Download Function
-extension FNGalleryCell : NetworkEngine {
-    func setImage(galleryObject : GalleryObject) {
-        if let url : URL = URL(string: galleryObject.imageUrl) {
-            getImage(imageUrl: url) { (UIImage) in
-                self.galleryImage.image = UIImage
-            }
-        }
+extension FNGalleryCell: NetworkEngine {
+    /// Function to download gallery image through url and set it
+    ///
+    /// - Parameter galleryObject: gallery object to be set
+    func setImage(galleryObject: GalleryObject) {
+        guard let url : URL = URL(string: galleryObject.imageUrl) else { return }
+        getImage(imageUrl: url, onSuccess: { image in
+            self.galleryImage.image = image
+        }, onFailure: { message in
+            print(message)
+        })
     }
 }

@@ -8,13 +8,16 @@
 
 import Foundation
 
-protocol CitiesService  : NetworkEngine {}
+protocol CitiesService: NetworkEngine {}
 
 let constants = FNConstants()
 extension CitiesService {
-    typealias fetchedData = (_  playerObjects : [CityObject]?) -> ()
-    func fetchCities(onSuccess : @escaping (fetchedData)) {
+    typealias fetchedCities = (_  playerObjects: [CityObject]?) -> ()
+    /// Function to fetch all cities object from API
+    ///
+    /// - Parameter onSuccess: completion handler for fetched objects
+    func fetchCities(onSuccess: @escaping fetchedCities, onFailure: @escaping failure) {
         guard let url = constants.apiUrl else { return }
-        getCities(url: url, onSuccess: onSuccess)
+        getCities(url: url, onSuccess: onSuccess, onFailure: onFailure)
     }
 }

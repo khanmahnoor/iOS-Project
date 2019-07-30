@@ -9,7 +9,7 @@
 import UIKit
 
 class FNCitiesVC: UIViewController {
-    
+    // MARK: Properties and Outlets
     var citiesVM                    :   FNCitiesVM?
     @IBOutlet weak var tableView    :   UITableView!
     let constants                   :   FNConstants     =   FNConstants()
@@ -17,19 +17,25 @@ class FNCitiesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
+        registerProtocols()
     }
 }
 
 extension FNCitiesVC {
-    func initViewModel() {
-        citiesVM = FNCitiesVM()
+    /// Function to set delegate and data source for table view
+    func registerProtocols() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    /// Function to initialize view model
+    func initViewModel() {
+        citiesVM = FNCitiesVM()
     }
 }
 
 // MARK: Table View Functions Extension
-extension FNCitiesVC : UITableViewDelegate, UITableViewDataSource {
+extension FNCitiesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return citiesVM?.itemCount ?? 0
     }

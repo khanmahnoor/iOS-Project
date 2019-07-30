@@ -149,10 +149,10 @@
 		4A013C3E22E87F4C006A4736 /* Cities Tab */ = {
 			isa = PBXGroup;
 			children = (
-				4A8513E622E996550098058C /* Network Service */,
 				4A013C3F22E8891F006A4736 /* View Controller */,
 				4A013C4022E8892E006A4736 /* Model */,
 				4A013C4122E88950006A4736 /* View Model */,
+				4A8513E622E996550098058C /* Network Service */,
 			);
 			path = "Cities Tab";
 			sourceTree = "<group>";
@@ -504,8 +504,8 @@
 				4A4A799322DF3E0700747126 /* FNNewsCell.swift */,
 				4A4A799422DF3E0700747126 /* FNNewsCell.xib */,
 				4A013C3122E82C71006A4736 /* FNVideoDetailsVC.swift */,
-				4A013C3922E8503F006A4736 /* FNNewsDetailsVC.swift */,
 				4A013C3522E8500E006A4736 /* FNFactDetailsVC.swift */,
+				4A013C3922E8503F006A4736 /* FNNewsDetailsVC.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";

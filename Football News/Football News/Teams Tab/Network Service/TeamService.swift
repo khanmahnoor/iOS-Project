@@ -10,14 +10,17 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-protocol TeamService : NetworkEngine {}
+protocol TeamService: NetworkEngine {}
 
 extension TeamService {
-    typealias fetchedData = (_  teamObjects : [TeamObject]?) -> ()
-    
-    func fetchTeams(onSuccess : @escaping (fetchedData)) {
+    typealias failure      = (_ message: String) -> ()
+    typealias fetchedTeams = (_ teamObjects: [TeamObject]?) -> ()
+    /// Function to fetch all team objects from firebase
+    ///
+    /// - Parameter onSuccess: completion handler for fetched objects
+    func fetchTeams(onSuccess: @escaping fetchedTeams, onFailure: @escaping failure) {
         let node = "Teams"
         let observerType = DataEventType.value
-        addFirebaseObserver(node: node, observerType: observerType, decodedData: onSuccess)
+        addFirebaseObserver(node: node, observerType: observerType, onSuccess: onSuccess, onFailure: onFailure)
     }
 }

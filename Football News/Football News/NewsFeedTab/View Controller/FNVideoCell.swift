@@ -12,44 +12,44 @@ import youtube_ios_player_helper
 class FNVideoCell: UITableViewCell {
     // MARK: Properties and Outlets
     var buttonTag               :   Int?
-    var delegate                :   FNButtonAction?
     @IBOutlet weak var sButton  :   UIButton!
     @IBOutlet weak var wButton  :   UIButton!
     @IBOutlet weak var video    :   YTPlayerView!
-
-    // MARK: Override Functions
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        video.layer.cornerRadius = 10
-    }
+    var delegate                :   FNButtonAction?
 }
 
 // MARK: Registration Functions Extension
 extension FNVideoCell {
-    func setTag(buttonTag : Int) {
+    /// Function to set the clicked row number in the table view
+    ///
+    /// - Parameter buttonTag: row number clicked
+    func setTag(buttonTag: Int) {
         self.buttonTag = buttonTag
     }
     
-    func loadVideo(videoID : String) {
-        video.load(withVideoId: videoID, playerVars: ["playsinline" : 1,
-                                                      "showinfo" : 0,
-                                                      "rel" : 0,
-                                                      "modestbranding" : 1,
-                                                      "controls" : 1,
-                                                      "origin" : "https://www.example.com"])
+    /// Function to load video in the table view cell (inline)
+    ///
+    /// - Parameter videoID: video ID to be loaded
+    func loadVideo(videoID: String) {
+        video.layer.cornerRadius = 10
+        video.load(withVideoId: videoID, playerVars: ["playsinline": 1])
     }
 }
 
-// MARK: Share Button Function
 extension FNVideoCell {
+    /// Function for share button on newsfeed video cell
+    ///
+    /// - Parameter sender: row number clicked
     @IBAction func shareButton(_ sender: UIButton) {
-        if let buttonTag = buttonTag {
-            delegate?.onClickShare(buttonTag)
-        }
+        guard let buttonTag = buttonTag else { return }
+        delegate?.onClickShare(buttonTag)
     }
+    
+    /// Function for watch button on newsfeed video cell
+    ///
+    /// - Parameter sender: row number clicked
     @IBAction func watchButton(_ sender: UIButton) {
-        if let buttonTag = buttonTag {
-            delegate?.onClickWatch(buttonTag)
-        }
+        guard let buttonTag = buttonTag else { return }
+        delegate?.onClickWatch(buttonTag)
     }
 }

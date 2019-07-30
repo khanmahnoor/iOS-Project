@@ -21,7 +21,7 @@ class FNGalleryVC: UIViewController {
         registerProtocols()
         registerNib()
         initViewModel()
-        setupCollectionViewItemSize()
+        setupCollectionViewItem()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,58 +33,53 @@ class FNGalleryVC: UIViewController {
     }
 }
 
-// MARK: Registration Functions
 extension FNGalleryVC {
+    /// Function to initialize view model
     func initViewModel() {
         galleryVM = FNGalleryVM()
     }
     
+    /// Function to register delegate and data source for collection view
     func registerProtocols() {
         collectionView.delegate     =   self
         collectionView.dataSource   =   self
     }
     
+    /// Function to register nib for collection view
     func registerNib() {
         let nib = UINib(nibName: constants.GALLERY_NIB, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: constants.GALLERY_IDENTIFIER)
     }
     
-    func setupCollectionViewItemSize() {
-        if collectionViewFlowLayout == nil {
-            let lineSpacing         :   CGFloat     =   3
-            let interItemSpacing    :   CGFloat     =   3
-            let numberOfItemForRow  :   CGFloat     =   2
-            
-            let width   =   (collectionView.frame.width  - (numberOfItemForRow - 1) * interItemSpacing) / numberOfItemForRow
-            let height  =   width
-            
-            collectionViewFlowLayout                            =   UICollectionViewFlowLayout()
-            collectionViewFlowLayout.scrollDirection            =   .vertical
-            collectionViewFlowLayout.minimumLineSpacing         =   lineSpacing
-            collectionViewFlowLayout.sectionInset               =   UIEdgeInsets.zero
-            collectionViewFlowLayout.minimumInteritemSpacing    =   interItemSpacing
-            collectionViewFlowLayout.itemSize                   =   CGSize(width: width, height: height)
-//
-            collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true )
-        }
+    /// Function to set Collection view item
+    func setupCollectionViewItem() {
+        let lineSpacing         :   CGFloat     =   3
+        let interItemSpacing    :   CGFloat     =   3
+        let numberOfItemForRow  :   CGFloat     =   2
+        
+        let width   =   (collectionView.frame.width  - (numberOfItemForRow - 1) * interItemSpacing) / numberOfItemForRow
+        let height  =   width
+        
+        collectionViewFlowLayout                            =   UICollectionViewFlowLayout()
+        collectionViewFlowLayout.scrollDirection            =   .vertical
+        collectionViewFlowLayout.minimumLineSpacing         =   lineSpacing
+        collectionViewFlowLayout.sectionInset               =   UIEdgeInsets.zero
+        collectionViewFlowLayout.minimumInteritemSpacing    =   interItemSpacing
+        collectionViewFlowLayout.itemSize                   =   CGSize(width: width, height: height)
+
+        collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true )
     }
 }
 
 // MARK: Collection View Functions
-extension FNGalleryVC : UICollectionViewDelegate, UICollectionViewDataSource {
+extension FNGalleryVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return galleryVM?.itemCount ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let galleryItem = galleryVM?.itemAt(indexPath) else {
-            return UICollectionViewCell()
-        }
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: constants.GALLERY_IDENTIFIER, for: indexPath) as? FNGalleryCell else  {
-            print("here")
-            return UICollectionViewCell()
-        }
-        
+        guard let galleryItem = galleryVM?.itemAt(indexPath) else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: constants.GALLERY_IDENTIFIER, for: indexPath) as? FNGalleryCell else  { return UICollectionViewCell() }
         cell.setImage(galleryObject: galleryItem)
         return cell
     }

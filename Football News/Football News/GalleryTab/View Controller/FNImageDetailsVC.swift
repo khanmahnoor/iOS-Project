@@ -20,27 +20,33 @@ class FNImageDetailsVC: UIViewController {
     }
 }
 
-// MARK: Registration Functions
 extension FNImageDetailsVC {
-    func initViewModel(galleryItem  : GalleryObject) {
+    /// Function to initialize view Model
+    ///
+    /// - Parameter galleryItem: gallery object to initialize view model
+    func initViewModel(galleryItem: GalleryObject) {
         self.galleryDetailsVM = FNImageDetailsVM(galleryImage: galleryItem)
     }
     
+    /// Function to set Image in the image view
     func setImage() {
-        galleryDetailsVM?.getPlayerImage(onSuccess: { (UIImage) in
-            self.galleryImage.image = UIImage
+        galleryDetailsVM?.getPlayerImage(onSuccess: { image in
+            self.galleryImage.image = image
+        }, onFailure: { message in
+            print(message)
         })
     }
 }
 
-// MARK: Share Button Function
 extension FNImageDetailsVC {
+    /// Function to implement share button functionality on gallery details view controller
+    ///
+    /// - Parameter sender: share button
     @IBAction func shareButton(_ sender: Any) {
-        galleryDetailsVM?.getPlayerImage(onSuccess: { (image) in
-            let imageToShare            =   [image]
-            let activityViewController  =   UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = self.view
-            self.present(activityViewController, animated: true, completion: nil)
-        })
+        let image = galleryImage.image
+        let imageToShare            =   [image]
+        let activityViewController  =   UIActivityViewController(activityItems: imageToShare as [Any], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
     }
 }
