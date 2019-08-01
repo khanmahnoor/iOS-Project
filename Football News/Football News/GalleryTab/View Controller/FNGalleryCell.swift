@@ -10,7 +10,8 @@ import UIKit
 
 class FNGalleryCell: UICollectionViewCell {
     // MARK: Outlets
-    @IBOutlet weak var galleryImage: UIImageView!
+    @IBOutlet weak var containerView    :   UIView!
+    @IBOutlet weak var galleryImage     :   UIImageView!
 }
 
 extension FNGalleryCell: NetworkEngine {

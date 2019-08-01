@@ -7,11 +7,11 @@
 //
 
 import UIKit
-
+import NVActivityIndicatorView
 
 class  FNSplash: UIViewController {
     // MARK: Outlets
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingIndicator: NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +23,16 @@ class  FNSplash: UIViewController {
 extension FNSplash {
     /// Function to start indicator
     func startIndicator() {
-        indicator.startAnimating()
+        loadingIndicator.color = .red
+        loadingIndicator.type = .ballTrianglePath
+        loadingIndicator.startAnimating()
     }
     
     /// Function to stop indicator and proceed to homescreen
     func fetchData() {
         _ = FNDataManager.shared
         FNDataManager.shared.feedDataFetched = { [weak self] in
-            self?.indicator?.stopAnimating()
+            self?.loadingIndicator?.stopAnimating()
             self?.proceedToHomeScreen()
         }
     }
