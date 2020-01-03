@@ -32,25 +32,27 @@ class FNPlayersVC: UIViewController {
     }
 }
 
-// MARK: Registration Functions
 extension FNPlayersVC {
+    /// Function to set delegate and data source for table view
     func registerProtocols() {
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.delegate      =   self
+        tableView.dataSource    =   self
     }
     
+    /// Function to set nib for table view
     func registerNibs() {
         let videoCellNib = UINib(nibName: constants.PLAYER_NIB , bundle: nil)
         tableView.register(videoCellNib, forCellReuseIdentifier: constants.PLAYER_IDENTIFIER)
     }
     
+    /// Function to initialize view model
     func initViewModel() {
         playersVM = FNPlayersVM()
     }
 }
 
 // MARK: Table View Functions
-extension FNPlayersVC : UITableViewDelegate, UITableViewDataSource {
+extension FNPlayersVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playersVM?.itemCount ?? 0
     }

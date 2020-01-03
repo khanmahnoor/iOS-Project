@@ -23,18 +23,23 @@ class FNTeamDetailsVC: UIViewController {
     }
 }
 
-// MARK: View Model Init and Setting Outlets
 extension FNTeamDetailsVC {
-    func initViewModel(team : TeamObject) {
+    /// Function to initialize view model
+    ///
+    /// - Parameter team: team object to initialize view model
+    func initViewModel(team: TeamObject) {
         self.teamDetailsVM = FNTeamDetailsVM(team : team)
     }
     
+    /// Function to set team details
     func setTeamDetails() {
         teamName.text               =   teamDetailsVM?.getTeamName()
         teamCountry.text            =   teamDetailsVM?.getTeamCountry()
         teamDescription.text        =   teamDetailsVM?.getTeamDescription()
-        teamDetailsVM?.getTeamFlag(onSuccess: { (UIImage) in
-            self.teamFlag.image     =   UIImage
+        teamDetailsVM?.getTeamFlag(onSuccess: { image in
+            self.teamFlag.image     =   image
+        }, onFailure: { message in
+            print(message)
         })
     }
 }

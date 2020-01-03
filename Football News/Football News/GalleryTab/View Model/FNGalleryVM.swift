@@ -25,6 +25,10 @@ class FNGalleryVM {
 
 // MARK: Functions
 extension FNGalleryVM {
+    /// Function to get object at a specific index in gallery model
+    ///
+    /// - Parameter indexPath: indexPath
+    /// - Returns: Gallery object
     func itemAt(_ indexPath: IndexPath) -> GalleryObject? {
         guard let _model = model, itemCount > 0 else { return nil }
         return _model[indexPath.item]

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class FNCacheManager {
-     // MARK: properties
-    static let shared  =    FNCacheManager()
-    let imageCache     =    NSCache<NSString,UIImage>()
+     // MARK: Properties
+    static let shared   =    FNCacheManager()
+    let imageCache      =    NSCache<NSString,UIImage>()
 }

@@ -13,30 +13,39 @@ class FNFactDetailsVM {
     // MARK: Properties
     var model   :   NewsFeedObject?
     
-    init(feedObject : NewsFeedObject) {
+    // MARK: Initializer
+    init(feedObject: NewsFeedObject) {
         model = feedObject
     }
 }
 
-// MARK: Functions
 extension FNFactDetailsVM {
+    /// Function to get Fact title
+    ///
+    /// - Returns: fact title
     func getFactTitle() -> String {
         return model?.title ?? ""
     }
     
+    /// Function to get fact descripton
+    ///
+    /// - Returns: fact description
     func getFactDescription() -> String {
         return model?.description ?? ""
     }
 }
 
 extension FNFactDetailsVM : NetworkEngine {
-    typealias fetchedImage = (_ playerImage : UIImage?)->()
-    func getFactImage(onSuccess : @escaping (fetchedImage)) {
+    typealias failure = (_ message: String) -> ()
+    typealias fetchedImage = (_ playerImage: UIImage?) -> ()
+    /// Function to download fact image
+    ///
+    /// - Parameter onSuccess: completion handler for downloaded image
+    func getFactImage(onSuccess: @escaping fetchedImage, onFailure: @escaping failure) {
         if let url : URL = URL(string: model?.url ?? "") {
-            getImage(imageUrl: url, image: onSuccess)
-        }
-        else {
-            guard let image = UIImage(named: "football") else { return }
+            getImage(imageUrl: url, onSuccess: onSuccess, onFailure: onFailure)
+        } else {
+            guard let image = UIImage(named: "football") else { return onFailure("Image not found") }
             onSuccess(image)
         }
     }

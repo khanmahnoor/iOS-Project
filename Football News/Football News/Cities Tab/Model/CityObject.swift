@@ -9,6 +9,7 @@
 import Foundation
 
 struct CityObject : Codable {
+    // MARK: Properties
     var title           :   String
     var woeid           :   Int
     var latt_long       :   String

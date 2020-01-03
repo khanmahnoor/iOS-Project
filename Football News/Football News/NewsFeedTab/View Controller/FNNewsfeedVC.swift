@@ -18,19 +18,21 @@ class FNNewsfeedVC: UIViewController {
     // MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerProtocols()
         registerNibs()
         initViewModel()
+        registerProtocols()
     }
 }
 
 // MARK: Registration Functions Extension
 extension FNNewsfeedVC {
+    /// Function to set the delegate and data source for table view
     func registerProtocols () {
         tableView.delegate      =   self
         tableView.dataSource    =   self
     }
     
+    /// Function to register nib files for table view
     func registerNibs() {
         let videoCellNib    =   UINib(nibName: constants.VIDEO_NIB, bundle: nil)
         let factCellNib     =   UINib(nibName: constants.FACT_NIB, bundle: nil)
@@ -41,13 +43,14 @@ extension FNNewsfeedVC {
         tableView.register(newsCellNib, forCellReuseIdentifier: constants.NEWS_IDENTIFIER)
     }
     
+    /// Function to initialize viewModel
     func initViewModel() {
         newsfeedVM = FNNewsfeedVM()
     }
 }
 
 // MARK: Table View Functions Extension
-extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
+extension FNNewsfeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsfeedVM?.itemCount ?? 0
     }
@@ -58,65 +61,67 @@ extension FNNewsfeedVC : UITableViewDelegate, UITableViewDataSource {
                 insertNewData(indexPath: indexPath)
             }
         }
-        let feedObject = newsfeedVM?.itemAt(indexPath)
+        guard let feedObject = newsfeedVM?.itemAt(indexPath) else { return UITableViewCell() }
         let cell = getTableCell(feedObject: feedObject, indexPath: indexPath)
         return cell
     }
 }
 
 extension FNNewsfeedVC {
-    func getTableCell(feedObject : NewsFeedObject?, indexPath: IndexPath) -> UITableViewCell {
-        switch feedObject?.type {
+    /// Function to return custom/specific cell for  table view
+    ///
+    /// - Parameters:
+    ///   - feedObject: the newsfeed object for the type of cell to return
+    ///   - indexPath: index path of the cell
+    /// - Returns: table view cell
+    func getTableCell(feedObject: NewsFeedObject, indexPath: IndexPath) -> UITableViewCell {
+        switch feedObject.type {
         case 0:
             guard let cell  =   tableView.dequeueReusableCell(withIdentifier: constants.VIDEO_IDENTIFIER) as? FNVideoCell else { return UITableViewCell() }
             cell.delegate   =   self
-            cell.setTag(buttonTag :  indexPath.row)
-            if let vID = feedObject?.getVideoID() {
-                cell.loadVideo(videoID: vID)
-            }
+            cell.setTag(buttonTag:  indexPath.row)
+            cell.loadVideo(videoID: feedObject.getVideoID())
             return cell
         case 1:
             guard let cell  =   tableView.dequeueReusableCell(withIdentifier: constants.FACT_IDENTIFIER) as? FNFactCell else { return UITableViewCell() }
             cell.delegate   =   self
-            cell.setTag(buttonTag :  indexPath.row)
-            if let feedObject = feedObject {
-                cell.loadFact(fact: feedObject)
-            }
+            cell.setTag(buttonTag:  indexPath.row)
+            cell.loadFact(fact: feedObject)
             return cell
         case 2:
             guard let cell  =   tableView.dequeueReusableCell(withIdentifier: constants.NEWS_IDENTIFIER) as? FNNewsCell else { return UITableViewCell() }
             cell.delegate   =    self
-            cell.setTag(buttonTag :  indexPath.row)
-            if let feedObject = feedObject {
-                cell.loadNews(news: feedObject)
-            }
+            cell.setTag(buttonTag:  indexPath.row)
+            cell.loadNews(news: feedObject)
             return cell
         default:
             return UITableViewCell()
         }
     }
     
-    func insertNewData(indexPath : IndexPath) {
-        newsfeedVM?.getMoreItems { objects in
-            if(objects?.count != nil) {
-                if let fetchedObjects : [NewsFeedObject] = objects {
-                    self.newsfeedVM?.model?.append(contentsOf: fetchedObjects)
-                    self.tableView.beginUpdates()
-                    var currentIndexPath : IndexPath = IndexPath(row: indexPath.row + 1 , section: 0)
-                    for _ in fetchedObjects {
-                        self.tableView.insertRows(at: [currentIndexPath], with: .none)
-                        currentIndexPath = IndexPath(row: currentIndexPath.row + 1 , section: 0)
-                    }
-                    self.tableView.endUpdates()
-                }
+    /// Function to insert new rows in the table view (Pagination)
+    ///
+    /// - Parameter indexPath: indexPath of the last inflated row
+    func insertNewData(indexPath: IndexPath) {
+        newsfeedVM?.getMoreItems(onSuccess: { objects in
+            guard let fetchedObjects : [NewsFeedObject] = objects else { return }
+            self.newsfeedVM?.model?.append(contentsOf: fetchedObjects)
+            self.tableView.beginUpdates()
+            var currentIndexPath : IndexPath = IndexPath(row: indexPath.row + 1 , section: 0)
+            for _ in fetchedObjects {
+                self.tableView.insertRows(at: [currentIndexPath], with: .none)
+                currentIndexPath = IndexPath(row: currentIndexPath.row + 1 , section: 0)
             }
-        }
+            self.tableView.endUpdates()
+        }, onFailure: { message in
+            print(message as Any)
+        })
     }
 }
 
 
 // MARK: Share/Watch/Read button Function
-extension FNNewsfeedVC : FNButtonAction {
+extension FNNewsfeedVC: FNButtonAction {
     func onClickWatch(_ tag: Int) {
         guard let item = newsfeedVM?.itemThroughIndex(tag) else { return }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

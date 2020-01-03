@@ -16,15 +16,18 @@ class FNTeamCell: UITableViewCell {
     
 }
 
-// MARK: Populating Team Cell
 extension FNTeamCell : NetworkEngine {
-    func setTeam(team : TeamObject) {
+    /// Function to load team information in table view cell
+    ///
+    /// - Parameter team: team object to be loaded
+    func setTeam(team: TeamObject) {
         country.text                    =   team.country
         teamName.text                   =   team.name        
-        if let url : URL = URL(string: team.flagUrl) {
-            getImage(imageUrl: url) { (UIImage) in
-                self.flagImage.image    = UIImage
-            }
-        }
+        guard let url : URL = URL(string: team.flagUrl) else { return }
+            getImage(imageUrl: url, onSuccess: { image in
+                self.flagImage.image    =   image
+            }, onFailure: { message in
+                print(message)
+            })
     }
 }

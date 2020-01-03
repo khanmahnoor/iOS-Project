@@ -10,14 +10,18 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-protocol GalleryService : NetworkEngine {}
+protocol GalleryService: NetworkEngine {}
 
 extension GalleryService {
-    typealias fetchedData = (_  galleryObjects : [GalleryObject]?) -> ()
+    typealias failure        =   (_ message: String) -> ()
+    typealias fetchedGallery = (_ galleryObjects: [GalleryObject]?) -> ()
     
-    func fetchGallery(onSuccess : @escaping (fetchedData)) {
+    /// Function to fetch all gallery objects
+    ///
+    /// - Parameter onSuccess: completion handler for the fetched objects
+    func fetchGallery(onSuccess: @escaping fetchedGallery, onFailure: @escaping failure) {
         let node = "Gallery"
         let observerType = DataEventType.value
-        addFirebaseObserver(node: node, observerType: observerType, decodedData: onSuccess)
+        addFirebaseObserver(node: node, observerType: observerType, onSuccess: onSuccess, onFailure: onFailure)
     }
 }

@@ -14,17 +14,19 @@ class FNImageDetailsVM {
     var model : GalleryObject?
     
     // MARK: Initializer
-    init (galleryImage : GalleryObject) {
+    init(galleryImage: GalleryObject) {
         self.model = galleryImage
     }
 }
 
-// MARK: Setting Image
-extension FNImageDetailsVM : NetworkEngine {
-    typealias fetchedImage = (_ playerImage : UIImage?)->()
-    func getPlayerImage(onSuccess : @escaping (fetchedImage)) {
-        if let url : URL = URL(string: model?.imageUrl ?? "") {
-            getImage(imageUrl: url, image: onSuccess)
-        }
+extension FNImageDetailsVM: NetworkEngine {
+    typealias failure = (_ message: String) -> ()
+    typealias fetchedImage = (_ playerImage: UIImage?) -> ()
+    /// Function to download gallery image
+    ///
+    /// - Parameter onSuccess: completion handler for downloaded image
+    func getPlayerImage(onSuccess: @escaping fetchedImage, onFailure: @escaping failure) {
+        guard let url : URL = URL(string: model?.imageUrl ?? "") else { return }
+        getImage(imageUrl: url, onSuccess: onSuccess, onFailure: onFailure)
     }
 }

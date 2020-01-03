@@ -14,35 +14,46 @@ class FNPlayerDetailsVM {
     var model : PlayerObject?
     
      // MARK: Initializer
-    init (player : PlayerObject) {
+    init (player: PlayerObject) {
         self.model = player
     }
 }
 
-// MARK: Getters
 extension FNPlayerDetailsVM {
+    /// Function to get player name
+    ///
+    /// - Returns: player name
     func getPlayerName() -> String {
         guard let name = model?.name else { return "" }
         return name
     }
     
+    /// Fnction to get player club
+    ///
+    /// - Returns: player club
     func getPlayerClub() -> String {
         guard let club = model?.club else { return "" }
         return club
     }
     
+    /// Function to get player description
+    ///
+    /// - Returns: player description
     func getPlayerDescription() -> String {
         guard let description = model?.description else { return "" }
         return description
     }
 }
 
-// MARK: Image Download
-extension FNPlayerDetailsVM : NetworkEngine {
-    typealias fetchedImage = (_ playerImage : UIImage?)->()
-    func getPlayerImage(onSuccess : @escaping (fetchedImage)) {
+extension FNPlayerDetailsVM: NetworkEngine {
+    typealias failure = (_ message: String) -> ()
+    typealias fetchedImage = (_ playerImage: UIImage?) -> ()
+    /// Function to download player image
+    ///
+    /// - Parameter onSuccess: completion handler for downloaded image
+    func getPlayerImage(onSuccess: @escaping fetchedImage, onFailure: @escaping failure) {
         if let url : URL = URL(string: model?.imageUrl ?? "") {
-            getImage(imageUrl: url, image: onSuccess)
+            getImage(imageUrl: url, onSuccess: onSuccess, onFailure: onFailure)
         }
     }
 }

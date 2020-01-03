@@ -12,17 +12,23 @@ class FNNewsDetailsVM {
     // MARK: Properties
     var model   :   NewsFeedObject?
     
-    init(feedObject : NewsFeedObject) {
+    // MARK: Initializer
+    init(feedObject: NewsFeedObject) {
         model = feedObject
     }
 }
 
-// MARK: Functions
 extension FNNewsDetailsVM {
+    /// Function to get news title
+    ///
+    /// - Returns: news title
     func getNewsTitle() -> String {
         return model?.title ?? ""
     }
     
+    /// Function to get news Description
+    ///
+    /// - Returns: news description
     func getNewsDescription() -> String {
         return model?.description ?? ""
     }

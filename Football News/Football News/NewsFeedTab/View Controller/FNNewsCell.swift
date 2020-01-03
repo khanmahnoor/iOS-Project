@@ -12,42 +12,46 @@ import URLEmbeddedView
 class FNNewsCell: UITableViewCell {
     // MARK: Properties and Outlets
     var buttonTag               :   Int?
-    var delegate                :   FNButtonAction?
     @IBOutlet weak var sButton  :   UIButton!
     @IBOutlet weak var rButton  :   UIButton!
     @IBOutlet weak var urlView  :   URLEmbeddedView!
-   
-    // MARK: Override Functions
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    var delegate                :   FNButtonAction?
 }
 
 // MARK: Registration Functions
 extension FNNewsCell {
-    func setTag(buttonTag : Int) {
+    /// Function to set the clicked row number in the table view
+    ///
+    /// - Parameter buttonTag: row number clicked
+    func setTag(buttonTag: Int) {
         self.buttonTag = buttonTag
     }
 }
 
 // MARK: Load News
 extension FNNewsCell {
-    func loadNews (news : NewsFeedObject) {
+    /// Function to load news in the table view cell
+    ///
+    /// - Parameter news: url of the news to be loaded
+    func loadNews(news: NewsFeedObject) {
         urlView.load(withURLString: news.url)
     }
 }
 
-// MARK: Share Button Function
 extension FNNewsCell {
-    @IBAction func shareButton(_ sender : UIButton) {
-        if let buttonTag = buttonTag {
-            delegate?.onClickShare(buttonTag)
-        }
+    /// Function for share button on newsfeed video cell
+    ///
+    /// - Parameter sender: row number clicked
+    @IBAction func shareButton(_ sender: UIButton) {
+        guard let buttonTag = buttonTag else { return }
+        delegate?.onClickShare(buttonTag)
     }
     
-    @IBAction func readButton(_ sender : UIButton) {
-        if let buttonTag = buttonTag {
-            delegate?.onClickWatch(buttonTag)
-        }
+    /// Function for read button on newsfeed video cell
+    ///
+    /// - Parameter sender: row number clicked
+    @IBAction func readButton(_ sender: UIButton) {
+        guard let buttonTag = buttonTag else { return }
+        delegate?.onClickWatch(buttonTag)
     }
 }

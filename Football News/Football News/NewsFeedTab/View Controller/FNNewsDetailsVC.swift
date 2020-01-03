@@ -22,10 +22,14 @@ class FNNewsDetailsVC: UIViewController {
 
 // MARK: Set News Details Functions
 extension FNNewsDetailsVC {
-    func initViewModel(feedObject : NewsFeedObject) {
-        newsDetailsVM = FNNewsDetailsVM(feedObject : feedObject)
+    /// Function to initialize View model
+    ///
+    /// - Parameter feedObject: newsfeed object for viewModel's initialization
+    func initViewModel(feedObject: NewsFeedObject) {
+        newsDetailsVM = FNNewsDetailsVM(feedObject: feedObject)
     }
     
+    /// Function to set news details
     func setNewsDetails() {
         newsTitle.text          =   newsDetailsVM?.getNewsTitle()
         newsDescrpition.text    =   newsDetailsVM?.getNewsDescription()
